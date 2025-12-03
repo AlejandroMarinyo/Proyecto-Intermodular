@@ -21,4 +21,15 @@ theme:
 
 nav:
   - Inicio: index.md
-  #- Guía: guia.md
+  - Introducción: Introduccion.md
+  - Marco Tecnológico: Marco_Tecnologico.md
+  - Diseño y Planificación: Diseno_y_Planificacion.md
+  - Desarrollo: Desarrollo.md
+  - Resultados: Resultados.md
+  - Conclusiones y mejoras futuras: Conclusiones.md
+  - Bibliografía : Bibliografia.md
+  - Anexos: Anexos.md
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true

@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+# Infraestructura completa de TI y plataforma web para CreviPlay
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Portada
 
-## Commands
+## Sinposis del Proyecto
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+CreviPlay es un nuevo estudio de desarrollo de videojuegos independiente que se está estableciendo en Crevillent. El estudio está formado por un pequeño equipo de desarrolladores locales que buscan crear videojuegos casuales e indie para múltiples plataformas.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Situación actual: Al ser una empresa de nueva creación, CreviPlay no cuenta con ninguna infraestructura de TI. Necesitan crear desde cero toda su infraestructura tecnológica para poder operar profesionalmente. Esto incluye servidores, servicios de red, base de datos, aplicación web, y todos los sistemas de seguridad y respaldo necesarios.
