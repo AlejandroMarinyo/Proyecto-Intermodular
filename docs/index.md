@@ -2,7 +2,11 @@
 
 ## Portada
 
-## Sinposis del Proyecto
+<div style="text-align: center; margin: 20px 0;">
+  <img src="./Portada.png" alt="Portada del proyecto" style="width: 90%; max-width: 1200px; height: auto; display: block; margin: 0 auto;">
+</div>
+
+## Sinopsis del Proyecto
 
 CreviPlay es un nuevo estudio de desarrollo de videojuegos independiente que se está estableciendo en Crevillent. El estudio está formado por un pequeño equipo de desarrolladores locales que buscan crear videojuegos casuales e indie para múltiples plataformas.
 
