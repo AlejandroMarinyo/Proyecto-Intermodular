@@ -1,9 +1,12 @@
 # Marco Tecnológico
 
-## Tecnologías usadas
+## Alcance funcional
 
 
-## Fundamentos
+## Alcance técnico
 
 
-## Justificación de elección
+## Alcance temporal
+
+
+## Alcance de recursos
