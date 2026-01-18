@@ -53,3 +53,12 @@ La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo
 - ✓ = Módulo relacionado con el requisito
 - - = Módulo no relacionado con el requisito
 - **Estados:** Pendiente, En desarrollo, Completado
+
+### Roles del equipo
+
+- Líder de proyecto: Alejandro Mariño.
+- Administrador de sistemas: Iker Sanchez.
+- Desarrollador web: Alejandro Mariño.
+- Administrador de base de datos: Alejandro Mariño y Iker Sanchez.
+- Especialista en seguridad: Iker Sanchez.
+- Documentador: Alejandro Mariño y Iker Sanchez.
