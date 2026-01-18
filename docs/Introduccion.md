@@ -47,27 +47,6 @@ Nuestro objetivo es destacar en la industria de videojuegos independientes con p
 |---|---|---|---|
 | - Equipo joven, motivado y con conocimiento técnico sólido<br>- Flexibilidad para adaptarse rápidamente a cambios<br>- Enfoque en nichos creativos del mercado indie | - Falta total de infraestructura TI previa<br>- Recursos económicos limitados como startup<br>- Poca experiencia empresarial del equipo | - Mercado de videojuegos indie en constante crecimiento<br>- Tecnologías cloud accesibles y escalables<br>- Apoyo de instituciones locales y regionales | - Competencia intensa de estudios consolidados<br>- Rápidos cambios tecnológicos en la industria<br>- Dependencia de plataformas de distribución |
 
-### **Alcance**
-- **Infraestructura base en AWS:** Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.
-- **Sistema de base de datos gestionado:** Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.
-- **Aplicación web profesional:** Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.
-- **Seguridad y mantenimiento avanzado:** Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.
-
-### **Requisitos principales**
-**Funcionales:**
-- Plataforma web con portafolio
-- Panel de administración
-- Gestión de Proyectos
-
-**No funcionales:**
-- Tiempo de carga < 2 segundos
-- Backup diario
-- Seguridad (HTTPS, encriptación)
-
-**Del negocio:**
-- Crear presencia web profesional
-- Mostrar los videojuegos
-
 ---
 
 **Metadatos / Fechas (origen del documento):**
