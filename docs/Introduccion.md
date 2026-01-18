@@ -73,4 +73,4 @@ Nuestro objetivo es destacar en la industria de videojuegos independientes con p
 **Metadatos / Fechas (origen del documento):**
 
 - Last update: December 3, 2025
-- Created: December 3, 2025
+- Created: December 4, 2025
