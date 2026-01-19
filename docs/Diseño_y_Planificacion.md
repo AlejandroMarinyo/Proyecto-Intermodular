@@ -1,8 +1,10 @@
 # Diseño y planificación
 
-##Alcance
+##Arquitectura
 
-### **Alcance Técnico**
+![Estructura del Proyecto](Estructura%20Proyecto.png)
+
+### **Decisiones de Diseño**
 - **Infraestructura base en AWS:** Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.
 - **Sistema de base de datos gestionado:** Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.
 - **Aplicación web profesional:** Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.
@@ -17,7 +19,32 @@ Las siguientes funcionalidades quedan excluidas de la fase inicial del proyecto 
 
 - **Foros o comentarios:** La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.
 
-### **Alcance Temporal**
+## Diseño de la Base de Datos
+
+El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que busca reflejar las necesidades principales de la plataforma CreviPlay: gestión de usuarios, proyectos de videojuegos, medios, categorías, desarrolladores, contactos y registro de logs de actividad. La estructura facilita la integridad de los datos y escalabilidad del sistema.
+
+### Principales entidades y relaciones
+
+- **usuarios**: Contiene la información básica y de autenticación de cada usuario del sistema.
+- **proyectos**: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.
+- **medios**: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).
+- **categorias**: Permite clasificar los proyectos por temáticas o géneros.
+- **desarrolladores**: Registra los miembros del equipo que participan en proyectos específicos.
+- **contactos**: Almacena posibles contactos externos y su relación con proyectos.
+- **logs_sistema**: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.
+- **Tablas de unión**: Se han diseñado relaciones N:M para proyectos-categorías, proyectos-desarrolladores y proyectos-contactos, permitiendo flexibilidad en la gestión de participaciones y clasificaciones.
+
+### Diagrama Entidad-Relación
+
+A continuación se muestra el modelo ER realizado. El diagrama resume de forma visual la estructura de la base de datos, sus tablas principales, atributos y relaciones clave.
+
+![Modelo Entidad-Relación CreviPlay](Diagrama_ER_Mermaid.png)
+
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">
+    Figura: Modelo Entidad-Relación principal de la base de datos CreviPlay
+</p>
+
+
 
 ## **Requisitos principales**
 **Funcionales:**
@@ -53,6 +80,8 @@ La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo
 - ✓ = Módulo relacionado con el requisito
 - - = Módulo no relacionado con el requisito
 - **Estados:** Pendiente, En desarrollo, Completado
+
+### **Alcance Temporal**
 
 ### Roles del equipo
 
