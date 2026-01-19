@@ -1,4 +1,4 @@
-# Marco Tecnológico
+# Diseño y planificación
 
 ##Alcance
 
