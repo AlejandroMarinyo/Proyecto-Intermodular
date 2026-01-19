@@ -312,22 +312,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#alcance" class="md-nav__link">
+  <a href="#arquitectura" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alcance
+        Arquitectura
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Alcance">
+    <nav class="md-nav" aria-label="Arquitectura">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alcance-tecnico" class="md-nav__link">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alcance Técnico
+        Decisiones de Diseño
       
     </span>
   </a>
@@ -345,11 +345,39 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#alcance-temporal" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-de-la-base-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alcance Temporal
+        Diseño de la Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diseño de la Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principales-entidades-y-relaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principales entidades y relaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-entidad-relacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Entidad-Relación
       
     </span>
   </a>
@@ -378,6 +406,17 @@
     <span class="md-ellipsis">
       
         Matriz de trazabilidad de requisitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alcance-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alcance Temporal
       
     </span>
   </a>
@@ -570,22 +609,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#alcance" class="md-nav__link">
+  <a href="#arquitectura" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alcance
+        Arquitectura
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Alcance">
+    <nav class="md-nav" aria-label="Arquitectura">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alcance-tecnico" class="md-nav__link">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alcance Técnico
+        Decisiones de Diseño
       
     </span>
   </a>
@@ -603,11 +642,39 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#alcance-temporal" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-de-la-base-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alcance Temporal
+        Diseño de la Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diseño de la Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principales-entidades-y-relaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principales entidades y relaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-entidad-relacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Entidad-Relación
       
     </span>
   </a>
@@ -636,6 +703,17 @@
     <span class="md-ellipsis">
       
         Matriz de trazabilidad de requisitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alcance-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alcance Temporal
       
     </span>
   </a>
@@ -676,8 +754,9 @@
 
 
 <h1 id="diseno-y-planificacion">Diseño y planificación</h1>
-<h2 id="alcance">Alcance</h2>
-<h3 id="alcance-tecnico"><strong>Alcance Técnico</strong></h3>
+<h2 id="arquitectura">Arquitectura</h2>
+<p><img alt="Estructura del Proyecto" src="../Estructura%20Proyecto.png" /></p>
+<h3 id="decisiones-de-diseno"><strong>Decisiones de Diseño</strong></h3>
 <ul>
 <li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.</li>
 <li><strong>Sistema de base de datos gestionado:</strong> Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.</li>
@@ -697,7 +776,26 @@
 <p><strong>Foros o comentarios:</strong> La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.</p>
 </li>
 </ul>
-<h3 id="alcance-temporal"><strong>Alcance Temporal</strong></h3>
+<h2 id="diseno-de-la-base-de-datos">Diseño de la Base de Datos</h2>
+<p>El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que busca reflejar las necesidades principales de la plataforma CreviPlay: gestión de usuarios, proyectos de videojuegos, medios, categorías, desarrolladores, contactos y registro de logs de actividad. La estructura facilita la integridad de los datos y escalabilidad del sistema.</p>
+<h3 id="principales-entidades-y-relaciones">Principales entidades y relaciones</h3>
+<ul>
+<li><strong>usuarios</strong>: Contiene la información básica y de autenticación de cada usuario del sistema.</li>
+<li><strong>proyectos</strong>: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.</li>
+<li><strong>medios</strong>: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).</li>
+<li><strong>categorias</strong>: Permite clasificar los proyectos por temáticas o géneros.</li>
+<li><strong>desarrolladores</strong>: Registra los miembros del equipo que participan en proyectos específicos.</li>
+<li><strong>contactos</strong>: Almacena posibles contactos externos y su relación con proyectos.</li>
+<li><strong>logs_sistema</strong>: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.</li>
+<li><strong>Tablas de unión</strong>: Se han diseñado relaciones N:M para proyectos-categorías, proyectos-desarrolladores y proyectos-contactos, permitiendo flexibilidad en la gestión de participaciones y clasificaciones.</li>
+</ul>
+<h3 id="diagrama-entidad-relacion">Diagrama Entidad-Relación</h3>
+<p>A continuación se muestra el modelo ER realizado. El diagrama resume de forma visual la estructura de la base de datos, sus tablas principales, atributos y relaciones clave.</p>
+<p><img alt="Modelo Entidad-Relación CreviPlay" src="../Diagrama_ER_Mermaid.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">
+    Figura: Modelo Entidad-Relación principal de la base de datos CreviPlay
+</p>
+
 <h2 id="requisitos-principales"><strong>Requisitos principales</strong></h2>
 <p><strong>Funcionales:</strong>
 - Plataforma web con portafolio
@@ -803,6 +901,7 @@
 - ✓ = Módulo relacionado con el requisito
 - - = Módulo no relacionado con el requisito
 - <strong>Estados:</strong> Pendiente, En desarrollo, Completado</p>
+<h3 id="alcance-temporal"><strong>Alcance Temporal</strong></h3>
 <h3 id="roles-del-equipo">Roles del equipo</h3>
 <ul>
 <li>Líder de proyecto: Alejandro Mariño.</li>
@@ -834,7 +933,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 18, 2026 17:36:56 UTC">January 18, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 19, 2026 19:57:13 UTC">January 19, 2026</span>
   </span>
 
     
