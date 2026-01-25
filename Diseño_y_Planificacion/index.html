@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -312,41 +312,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arquitectura" class="md-nav__link">
+  <a href="#infraestructura-del-proyecto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arquitectura
+        Infraestructura del proyecto
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Arquitectura">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#decisiones-de-diseno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de Diseño
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exclusiones en fase inicial
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -417,6 +389,39 @@
     <span class="md-ellipsis">
       
         Diagrama de Gantt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-riesgos-con-estrategias-de-mitigacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de riesgos con estrategias de mitigación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de Diseño
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclusiones en fase inicial
       
     </span>
   </a>
@@ -609,41 +614,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arquitectura" class="md-nav__link">
+  <a href="#infraestructura-del-proyecto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arquitectura
+        Infraestructura del proyecto
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Arquitectura">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#decisiones-de-diseno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de Diseño
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exclusiones en fase inicial
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -721,6 +698,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#matriz-de-riesgos-con-estrategias-de-mitigacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de riesgos con estrategias de mitigación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de Diseño
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclusiones en fase inicial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#roles-del-equipo" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -754,39 +764,19 @@
 
 
 <h1 id="diseno-y-planificacion">Diseño y planificación</h1>
-<h2 id="arquitectura">Arquitectura</h2>
+<h2 id="infraestructura-del-proyecto">Infraestructura del proyecto</h2>
 <p><img alt="Estructura del Proyecto" src="../Estructura%20Proyecto.png" /></p>
-<h3 id="decisiones-de-diseno"><strong>Decisiones de Diseño</strong></h3>
-<ul>
-<li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.</li>
-<li><strong>Sistema de base de datos gestionado:</strong> Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.</li>
-<li><strong>Aplicación web profesional:</strong> Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.</li>
-<li><strong>Seguridad y mantenimiento avanzado:</strong> Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.</li>
-</ul>
-<h3 id="exclusiones-en-fase-inicial"><strong>Exclusiones en fase inicial</strong></h3>
-<p>Las siguientes funcionalidades quedan excluidas de la fase inicial del proyecto y podrán ser implementadas en futuras iteraciones:</p>
-<ul>
-<li>
-<p><strong>Integración con Steam/Epic:</strong> La integración con plataformas de distribución de videojuegos como Steam o Epic Games Store no está contemplada en esta fase inicial.</p>
-</li>
-<li>
-<p><strong>Sistema de descargas:</strong> No se implementará un sistema propio de descarga directa de videojuegos en esta fase.</p>
-</li>
-<li>
-<p><strong>Foros o comentarios:</strong> La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.</p>
-</li>
-</ul>
 <h2 id="diseno-de-la-base-de-datos">Diseño de la Base de Datos</h2>
 <p>El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que busca reflejar las necesidades principales de la plataforma CreviPlay: gestión de usuarios, proyectos de videojuegos, medios, categorías, desarrolladores, contactos y registro de logs de actividad. La estructura facilita la integridad de los datos y escalabilidad del sistema.</p>
 <h3 id="principales-entidades-y-relaciones">Principales entidades y relaciones</h3>
 <ul>
-<li><strong>usuarios</strong>: Contiene la información básica y de autenticación de cada usuario del sistema.</li>
-<li><strong>proyectos</strong>: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.</li>
-<li><strong>medios</strong>: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).</li>
-<li><strong>categorias</strong>: Permite clasificar los proyectos por temáticas o géneros.</li>
-<li><strong>desarrolladores</strong>: Registra los miembros del equipo que participan en proyectos específicos.</li>
-<li><strong>contactos</strong>: Almacena posibles contactos externos y su relación con proyectos.</li>
-<li><strong>logs_sistema</strong>: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.</li>
+<li><strong>Usuarios</strong>: Contiene la información básica y de autenticación de cada usuario del sistema.</li>
+<li><strong>Proyectos</strong>: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.</li>
+<li><strong>Medios</strong>: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).</li>
+<li><strong>Categorias</strong>: Permite clasificar los proyectos por temáticas o géneros.</li>
+<li><strong>Desarrolladores</strong>: Registra los miembros del equipo que participan en proyectos específicos.</li>
+<li><strong>Contactos</strong>: Almacena posibles contactos externos y su relación con proyectos.</li>
+<li><strong>Logs_sistema</strong>: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.</li>
 <li><strong>Tablas de unión</strong>: Se han diseñado relaciones N:M para proyectos-categorías, proyectos-desarrolladores y proyectos-contactos, permitiendo flexibilidad en la gestión de participaciones y clasificaciones.</li>
 </ul>
 <h3 id="diagrama-entidad-relacion">Diagrama Entidad-Relación</h3>
@@ -905,7 +895,94 @@
 <p>Este es el diagrama de Gantt de nuestro proyecto (Sujeto a cambios)</p>
 <p><img alt="Diagrama de Gantt" src="../Gantt.png" /></p>
 <p><a href="https://trello.com/invite/b/692dd6254cc1eb9200f5c982/ATTI7a99346f596d27f1b6ba5ae0d74a60ff4779E02B/proyecto-intermodular" target="_blank" rel="noopener noreferrer">Enlace a Trello</a></p>
-<h3 id="roles-del-equipo">Roles del equipo</h3>
+<h3 id="matriz-de-riesgos-con-estrategias-de-mitigacion"><strong>Matriz de riesgos con estrategias de mitigación</strong></h3>
+<p>La siguiente tabla identifica los principales riesgos que podrían surgir durante la implementación práctica del proyecto, junto con estrategias de mitigación para cada uno:</p>
+<table>
+<thead>
+<tr>
+<th>Riesgo</th>
+<th>Descripción</th>
+<th>Probabilidad</th>
+<th>Impacto</th>
+<th>Estrategia de Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Configuración incorrecta de Security Groups</strong></td>
+<td>Reglas de firewall mal configuradas que permiten acceso no autorizado o bloquean tráfico legítimo</td>
+<td>Media</td>
+<td>Alto</td>
+<td>Documentar todas las reglas antes de implementar, usar plantillas de seguridad probadas, realizar pruebas de conectividad después de cada cambio, implementar principio de menor privilegio</td>
+</tr>
+<tr>
+<td><strong>Pérdida de datos por falta de backups</strong></td>
+<td>Fallo en el sistema de respaldo automático o pérdida de datos críticos</td>
+<td>Baja</td>
+<td>Alto</td>
+<td>Configurar backups automáticos diarios en RDS, verificar regularmente la integridad de los backups</td>
+</tr>
+<tr>
+<td><strong>Sobrecostos inesperados en AWS</strong></td>
+<td>Uso excesivo de recursos que genera facturas elevadas</td>
+<td>Alta</td>
+<td>Alta</td>
+<td>Usar instancias de tamaño apropiado, pensar en hacerlo en varios laboratorios y al final levantarlo todo en un mismo laboratorio</td>
+</tr>
+<tr>
+<td><strong>Problemas de conectividad de red</strong></td>
+<td>Configuración incorrecta de VPC, subredes o rutas que impide la comunicación entre servicios</td>
+<td>Media</td>
+<td>Alto</td>
+<td>Diseñar topología de red antes de implementar, usar diagramas de red, probar conectividad entre cada componente, documentar todas las configuraciones de red</td>
+</tr>
+<tr>
+<td><strong>Rendimiento insuficiente</strong></td>
+<td>Tiempos de carga superiores a 2 segundos o saturación del servidor</td>
+<td>Media</td>
+<td>Medio</td>
+<td>Implementar CloudFront, optimizar imágenes y recursos estáticos, usar caché en WordPress, realizar pruebas de carga antes del despliegue</td>
+</tr>
+<tr>
+<td><strong>Problemas con la base de datos RDS</strong></td>
+<td>Fallos de conexión, pérdida de rendimiento o errores en consultas</td>
+<td>Baja</td>
+<td>Alto</td>
+<td>Configurar RDS multi-AZ para alta disponibilidad, monitorear métricas de rendimiento, optimizar consultas SQL, realizar mantenimiento preventivo regular</td>
+</tr>
+<tr>
+<td><strong>Pérdida de acceso remoto</strong></td>
+<td>Problemas con SSH o acceso a instancias EC2 que impiden la administración</td>
+<td>Baja</td>
+<td>Alto</td>
+<td>Mantener múltiples métodos de acceso (SSH, RDP), almacenar claves de forma segura</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Leyenda de Probabilidad e Impacto:</strong>
+- <strong>Probabilidad:</strong> Alta (frecuente), Media (ocasional), Baja (raro)
+- <strong>Impacto:</strong> Alto (crítico para el proyecto), Medio (afecta funcionalidad), Bajo (menor inconveniente)</p>
+<h3 id="decisiones-de-diseno"><strong>Decisiones de Diseño</strong></h3>
+<ul>
+<li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.</li>
+<li><strong>Sistema de base de datos gestionado:</strong> Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.</li>
+<li><strong>Aplicación web profesional:</strong> Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.</li>
+<li><strong>Seguridad y mantenimiento avanzado:</strong> Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.</li>
+</ul>
+<h3 id="exclusiones-en-fase-inicial"><strong>Exclusiones en fase inicial</strong></h3>
+<p>Las siguientes funcionalidades quedan excluidas de la fase inicial del proyecto y podrán ser implementadas en futuras iteraciones:</p>
+<ul>
+<li>
+<p><strong>Integración con Steam/Epic:</strong> La integración con plataformas de distribución de videojuegos como Steam o Epic Games Store no está contemplada en esta fase inicial.</p>
+</li>
+<li>
+<p><strong>Sistema de descargas:</strong> No se implementará un sistema propio de descarga directa de videojuegos en esta fase.</p>
+</li>
+<li>
+<p><strong>Foros o comentarios:</strong> La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.</p>
+</li>
+</ul>
+<h3 id="roles-del-equipo"><strong>Roles del equipo</strong></h3>
 <ul>
 <li>Líder de proyecto: Alejandro Mariño.</li>
 <li>Administrador de sistemas: Iker Sanchez.</li>
@@ -936,7 +1013,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2026 17:33:13 UTC">January 25, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2026 17:54:30 UTC">January 25, 2026</span>
   </span>
 
     
@@ -995,10 +1072,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
