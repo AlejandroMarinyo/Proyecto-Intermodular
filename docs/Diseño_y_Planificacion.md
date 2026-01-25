@@ -87,7 +87,7 @@ Este es el diagrama de Gantt de nuestro proyecto (Sujeto a cambios)
 
 ![Diagrama de Gantt](Gantt.png)
 
-[Enlace a Trello](https://trello.com/invite/b/692dd6254cc1eb9200f5c982/ATTI7a99346f596d27f1b6ba5ae0d74a60ff4779E02B/proyecto-intermodular)
+<a href="https://trello.com/invite/b/692dd6254cc1eb9200f5c982/ATTI7a99346f596d27f1b6ba5ae0d74a60ff4779E02B/proyecto-intermodular" target="_blank" rel="noopener noreferrer">Enlace a Trello</a>
 
 ### Roles del equipo
 
