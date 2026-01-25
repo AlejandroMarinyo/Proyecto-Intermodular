@@ -67,14 +67,14 @@ La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo
 
 | Requisito | ASGBD | ASO | IAW | Servicios de Red | Seguridad | Estado |
 |-----------|-------|-----|-----|-----------------|-----------|--------|
-| **Plataforma web con portafolio** | - | ✓ | ✓ | ✓ | ✓ | En desarrollo |
-| **Panel de administración** | ✓ | ✓ | ✓ | ✓ | ✓ | En desarrollo |
-| **Gestión de Proyectos** | ✓ | ✓ | ✓ | - | ✓ | En desarrollo |
+| **Plataforma web con portafolio** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Panel de administración** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Gestión de Proyectos** | ✓ | ✓ | ✓ | - | ✓ | Pendiente |
 | **Tiempo de carga < 2 segundos** | - | ✓ | ✓ | ✓ | - | Pendiente |
 | **Backup diario** | ✓ | ✓ | - | - | ✓ | Pendiente |
-| **Seguridad (HTTPS, encriptación)** | ✓ | ✓ | ✓ | ✓ | ✓ | En desarrollo |
-| **Crear presencia web profesional** | - | ✓ | ✓ | ✓ | ✓ | En desarrollo |
-| **Mostrar los videojuegos** | - | ✓ | ✓ | ✓ | - | En desarrollo |
+| **Seguridad (HTTPS, encriptación)** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Crear presencia web profesional** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Mostrar los videojuegos** | - | ✓ | ✓ | ✓ | - | Pendiente |
 
 **Leyenda:**
 - ✓ = Módulo relacionado con el requisito
