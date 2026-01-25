@@ -1,23 +1,8 @@
 # Diseño y planificación
 
-##Arquitectura
+##Infraestructura del proyecto
 
 ![Estructura del Proyecto](Estructura%20Proyecto.png)
-
-### **Decisiones de Diseño**
-- **Infraestructura base en AWS:** Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.
-- **Sistema de base de datos gestionado:** Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.
-- **Aplicación web profesional:** Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.
-- **Seguridad y mantenimiento avanzado:** Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.
-
-### **Exclusiones en fase inicial**
-Las siguientes funcionalidades quedan excluidas de la fase inicial del proyecto y podrán ser implementadas en futuras iteraciones:
-
-- **Integración con Steam/Epic:** La integración con plataformas de distribución de videojuegos como Steam o Epic Games Store no está contemplada en esta fase inicial.
-
-- **Sistema de descargas:** No se implementará un sistema propio de descarga directa de videojuegos en esta fase.
-
-- **Foros o comentarios:** La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.
 
 ## Diseño de la Base de Datos
 
@@ -25,13 +10,13 @@ El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) 
 
 ### Principales entidades y relaciones
 
-- **usuarios**: Contiene la información básica y de autenticación de cada usuario del sistema.
-- **proyectos**: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.
-- **medios**: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).
-- **categorias**: Permite clasificar los proyectos por temáticas o géneros.
-- **desarrolladores**: Registra los miembros del equipo que participan en proyectos específicos.
-- **contactos**: Almacena posibles contactos externos y su relación con proyectos.
-- **logs_sistema**: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.
+- **Usuarios**: Contiene la información básica y de autenticación de cada usuario del sistema.
+- **Proyectos**: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.
+- **Medios**: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).
+- **Categorias**: Permite clasificar los proyectos por temáticas o géneros.
+- **Desarrolladores**: Registra los miembros del equipo que participan en proyectos específicos.
+- **Contactos**: Almacena posibles contactos externos y su relación con proyectos.
+- **Logs_sistema**: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.
 - **Tablas de unión**: Se han diseñado relaciones N:M para proyectos-categorías, proyectos-desarrolladores y proyectos-contactos, permitiendo flexibilidad en la gestión de participaciones y clasificaciones.
 
 ### Diagrama Entidad-Relación
@@ -89,7 +74,41 @@ Este es el diagrama de Gantt de nuestro proyecto (Sujeto a cambios)
 
 <a href="https://trello.com/invite/b/692dd6254cc1eb9200f5c982/ATTI7a99346f596d27f1b6ba5ae0d74a60ff4779E02B/proyecto-intermodular" target="_blank" rel="noopener noreferrer">Enlace a Trello</a>
 
-### Roles del equipo
+### **Matriz de riesgos con estrategias de mitigación**
+
+La siguiente tabla identifica los principales riesgos que podrían surgir durante la implementación práctica del proyecto, junto con estrategias de mitigación para cada uno:
+
+| Riesgo | Descripción | Probabilidad | Impacto | Estrategia de Mitigación |
+|--------|-------------|--------------|---------|-------------------------|
+| **Configuración incorrecta de Security Groups** | Reglas de firewall mal configuradas que permiten acceso no autorizado o bloquean tráfico legítimo | Media | Alto | Documentar todas las reglas antes de implementar, usar plantillas de seguridad probadas, realizar pruebas de conectividad después de cada cambio, implementar principio de menor privilegio |
+| **Pérdida de datos por falta de backups** | Fallo en el sistema de respaldo automático o pérdida de datos críticos | Baja | Alto | Configurar backups automáticos diarios en RDS, verificar regularmente la integridad de los backups |
+| **Sobrecostos inesperados en AWS** | Uso excesivo de recursos que genera facturas elevadas | Alta | Alta | Usar instancias de tamaño apropiado, pensar en hacerlo en varios laboratorios y al final levantarlo todo en un mismo laboratorio |
+| **Problemas de conectividad de red** | Configuración incorrecta de VPC, subredes o rutas que impide la comunicación entre servicios | Media | Alto | Diseñar topología de red antes de implementar, usar diagramas de red, probar conectividad entre cada componente, documentar todas las configuraciones de red |
+| **Rendimiento insuficiente** | Tiempos de carga superiores a 2 segundos o saturación del servidor | Media | Medio | Implementar CloudFront, optimizar imágenes y recursos estáticos, usar caché en WordPress, realizar pruebas de carga antes del despliegue |
+| **Problemas con la base de datos RDS** | Fallos de conexión, pérdida de rendimiento o errores en consultas | Baja | Alto | Configurar RDS multi-AZ para alta disponibilidad, monitorear métricas de rendimiento, optimizar consultas SQL, realizar mantenimiento preventivo regular |
+| **Pérdida de acceso remoto** | Problemas con SSH o acceso a instancias EC2 que impiden la administración | Baja | Alto | Mantener múltiples métodos de acceso (SSH, RDP), almacenar claves de forma segura |
+
+**Leyenda de Probabilidad e Impacto:**
+- **Probabilidad:** Alta (frecuente), Media (ocasional), Baja (raro)
+- **Impacto:** Alto (crítico para el proyecto), Medio (afecta funcionalidad), Bajo (menor inconveniente)
+
+### **Decisiones de Diseño**
+- **Infraestructura base en AWS:** Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.
+- **Sistema de base de datos gestionado:** Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.
+- **Aplicación web profesional:** Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.
+- **Seguridad y mantenimiento avanzado:** Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.
+
+### **Exclusiones en fase inicial**
+Las siguientes funcionalidades quedan excluidas de la fase inicial del proyecto y podrán ser implementadas en futuras iteraciones:
+
+- **Integración con Steam/Epic:** La integración con plataformas de distribución de videojuegos como Steam o Epic Games Store no está contemplada en esta fase inicial.
+
+- **Sistema de descargas:** No se implementará un sistema propio de descarga directa de videojuegos en esta fase.
+
+- **Foros o comentarios:** La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.
+
+
+### **Roles del equipo**
 
 - Líder de proyecto: Alejandro Mariño.
 - Administrador de sistemas: Iker Sanchez.
