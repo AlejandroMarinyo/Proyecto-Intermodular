@@ -1,0 +1,1082 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación del proyecto PI de ASIR">
+      
+      
+        <meta name="author" content="AlejandroMarinyo">
+      
+      
+        <link rel="canonical" href="https://AlejandroMarinyo.github.io/Proyecto-Intermodular/Dise%C3%B1o_y_Planificacion/">
+      
+      
+        <link rel="prev" href="../Introduccion/">
+      
+      
+        <link rel="next" href="../Desarrollo/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Diseño y Planificación - Proyecto-Intermodular</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diseno-y-planificacion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Proyecto-Intermodular" class="md-header__button md-logo" aria-label="Proyecto-Intermodular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Proyecto-Intermodular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diseño y Planificación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Proyecto-Intermodular" class="md-nav__button md-logo" aria-label="Proyecto-Intermodular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Proyecto-Intermodular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño y Planificación
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño y Planificación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#infraestructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infraestructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diseño de la Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diseño de la Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principales-entidades-y-relaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principales entidades y relaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-entidad-relacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Entidad-Relación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisitos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisitos principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisitos principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-trazabilidad-de-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de trazabilidad de requisitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-gantt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de Gantt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-riesgos-con-estrategias-de-mitigacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de riesgos con estrategias de mitigación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de Diseño
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclusiones en fase inicial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-del-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles del equipo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Conclusiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conclusiones y mejoras futuras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bibliografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliografía
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anexos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anexos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#infraestructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infraestructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diseño de la Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diseño de la Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principales-entidades-y-relaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principales entidades y relaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-entidad-relacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Entidad-Relación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisitos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisitos principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisitos principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-trazabilidad-de-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de trazabilidad de requisitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-gantt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de Gantt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-riesgos-con-estrategias-de-mitigacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de riesgos con estrategias de mitigación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de Diseño
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclusiones en fase inicial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-del-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles del equipo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="diseno-y-planificacion">Diseño y planificación</h1>
+<h2 id="infraestructura-del-proyecto">Infraestructura del proyecto</h2>
+<p><img alt="Estructura del Proyecto" src="../Estructura%20Proyecto.png" /></p>
+<h2 id="diseno-de-la-base-de-datos">Diseño de la Base de Datos</h2>
+<p>El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que busca reflejar las necesidades principales de la plataforma CreviPlay: gestión de usuarios, proyectos de videojuegos, medios, categorías, desarrolladores, contactos y registro de logs de actividad. La estructura facilita la integridad de los datos y escalabilidad del sistema.</p>
+<h3 id="principales-entidades-y-relaciones">Principales entidades y relaciones</h3>
+<ul>
+<li><strong>Usuarios</strong>: Contiene la información básica y de autenticación de cada usuario del sistema.</li>
+<li><strong>Proyectos</strong>: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.</li>
+<li><strong>Medios</strong>: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).</li>
+<li><strong>Categorias</strong>: Permite clasificar los proyectos por temáticas o géneros.</li>
+<li><strong>Desarrolladores</strong>: Registra los miembros del equipo que participan en proyectos específicos.</li>
+<li><strong>Contactos</strong>: Almacena posibles contactos externos y su relación con proyectos.</li>
+<li><strong>Logs_sistema</strong>: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.</li>
+<li><strong>Tablas de unión</strong>: Se han diseñado relaciones N:M para proyectos-categorías, proyectos-desarrolladores y proyectos-contactos, permitiendo flexibilidad en la gestión de participaciones y clasificaciones.</li>
+</ul>
+<h3 id="diagrama-entidad-relacion">Diagrama Entidad-Relación</h3>
+<p>A continuación se muestra el modelo ER realizado. El diagrama resume de forma visual la estructura de la base de datos, sus tablas principales, atributos y relaciones clave.</p>
+<p><img alt="Modelo Entidad-Relación CreviPlay" src="../Diagrama_ER_Mermaid.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">
+    Figura: Modelo Entidad-Relación principal de la base de datos CreviPlay
+</p>
+
+<h2 id="requisitos-principales"><strong>Requisitos principales</strong></h2>
+<p><strong>Funcionales:</strong>
+- Plataforma web con portafolio
+- Panel de administración
+- Gestión de Proyectos</p>
+<p><strong>No funcionales:</strong>
+- Tiempo de carga &lt; 2 segundos
+- Backup diario
+- Seguridad (HTTPS, encriptación)</p>
+<p><strong>Del negocio:</strong>
+- Crear presencia web profesional
+- Mostrar los videojuegos</p>
+<h3 id="matriz-de-trazabilidad-de-requisitos"><strong>Matriz de trazabilidad de requisitos</strong></h3>
+<p>La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo y su estado de implementación:</p>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>ASGBD</th>
+<th>ASO</th>
+<th>IAW</th>
+<th>Servicios de Red</th>
+<th>Seguridad</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plataforma web con portafolio</strong></td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td><strong>Panel de administración</strong></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td><strong>Gestión de Proyectos</strong></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td><strong>Tiempo de carga &lt; 2 segundos</strong></td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td><strong>Backup diario</strong></td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td><strong>Seguridad (HTTPS, encriptación)</strong></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td><strong>Crear presencia web profesional</strong></td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td><strong>Mostrar los videojuegos</strong></td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+<td>Pendiente</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Leyenda:</strong>
+- ✓ = Módulo relacionado con el requisito
+- - = Módulo no relacionado con el requisito
+- <strong>Estados:</strong> Pendiente, En desarrollo, Completado</p>
+<h3 id="diagrama-de-gantt"><strong>Diagrama de Gantt</strong></h3>
+<p>Este es el diagrama de Gantt de nuestro proyecto (Sujeto a cambios)</p>
+<p><img alt="Diagrama de Gantt" src="../Gantt.png" /></p>
+<p><a href="https://trello.com/invite/b/692dd6254cc1eb9200f5c982/ATTI7a99346f596d27f1b6ba5ae0d74a60ff4779E02B/proyecto-intermodular" target="_blank" rel="noopener noreferrer">Enlace a Trello</a></p>
+<h3 id="matriz-de-riesgos-con-estrategias-de-mitigacion"><strong>Matriz de riesgos con estrategias de mitigación</strong></h3>
+<p>La siguiente tabla identifica los principales riesgos que podrían surgir durante la implementación práctica del proyecto, junto con estrategias de mitigación para cada uno:</p>
+<table>
+<thead>
+<tr>
+<th>Riesgo</th>
+<th>Descripción</th>
+<th>Probabilidad</th>
+<th>Impacto</th>
+<th>Estrategia de Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Configuración incorrecta de Security Groups</strong></td>
+<td>Reglas de firewall mal configuradas que permiten acceso no autorizado o bloquean tráfico legítimo</td>
+<td>Media</td>
+<td>Alto</td>
+<td>Documentar todas las reglas antes de implementar, usar plantillas de seguridad probadas, realizar pruebas de conectividad después de cada cambio, implementar principio de menor privilegio</td>
+</tr>
+<tr>
+<td><strong>Pérdida de datos por falta de backups</strong></td>
+<td>Fallo en el sistema de respaldo automático o pérdida de datos críticos</td>
+<td>Baja</td>
+<td>Alto</td>
+<td>Configurar backups automáticos diarios en RDS, verificar regularmente la integridad de los backups</td>
+</tr>
+<tr>
+<td><strong>Sobrecostos inesperados en AWS</strong></td>
+<td>Uso excesivo de recursos que genera facturas elevadas</td>
+<td>Alta</td>
+<td>Alta</td>
+<td>Usar instancias de tamaño apropiado, pensar en hacerlo en varios laboratorios y al final levantarlo todo en un mismo laboratorio</td>
+</tr>
+<tr>
+<td><strong>Problemas de conectividad de red</strong></td>
+<td>Configuración incorrecta de VPC, subredes o rutas que impide la comunicación entre servicios</td>
+<td>Media</td>
+<td>Alto</td>
+<td>Diseñar topología de red antes de implementar, usar diagramas de red, probar conectividad entre cada componente, documentar todas las configuraciones de red</td>
+</tr>
+<tr>
+<td><strong>Rendimiento insuficiente</strong></td>
+<td>Tiempos de carga superiores a 2 segundos o saturación del servidor</td>
+<td>Media</td>
+<td>Medio</td>
+<td>Implementar CloudFront, optimizar imágenes y recursos estáticos, usar caché en WordPress, realizar pruebas de carga antes del despliegue</td>
+</tr>
+<tr>
+<td><strong>Problemas con la base de datos RDS</strong></td>
+<td>Fallos de conexión, pérdida de rendimiento o errores en consultas</td>
+<td>Baja</td>
+<td>Alto</td>
+<td>Configurar RDS multi-AZ para alta disponibilidad, monitorear métricas de rendimiento, optimizar consultas SQL, realizar mantenimiento preventivo regular</td>
+</tr>
+<tr>
+<td><strong>Pérdida de acceso remoto</strong></td>
+<td>Problemas con SSH o acceso a instancias EC2 que impiden la administración</td>
+<td>Baja</td>
+<td>Alto</td>
+<td>Mantener múltiples métodos de acceso (SSH, RDP), almacenar claves de forma segura</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Leyenda de Probabilidad e Impacto:</strong>
+- <strong>Probabilidad:</strong> Alta (frecuente), Media (ocasional), Baja (raro)
+- <strong>Impacto:</strong> Alto (crítico para el proyecto), Medio (afecta funcionalidad), Bajo (menor inconveniente)</p>
+<h3 id="decisiones-de-diseno"><strong>Decisiones de Diseño</strong></h3>
+<ul>
+<li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.</li>
+<li><strong>Sistema de base de datos gestionado:</strong> Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.</li>
+<li><strong>Aplicación web profesional:</strong> Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.</li>
+<li><strong>Seguridad y mantenimiento avanzado:</strong> Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.</li>
+</ul>
+<h3 id="exclusiones-en-fase-inicial"><strong>Exclusiones en fase inicial</strong></h3>
+<p>Las siguientes funcionalidades quedan excluidas de la fase inicial del proyecto y podrán ser implementadas en futuras iteraciones:</p>
+<ul>
+<li>
+<p><strong>Integración con Steam/Epic:</strong> La integración con plataformas de distribución de videojuegos como Steam o Epic Games Store no está contemplada en esta fase inicial.</p>
+</li>
+<li>
+<p><strong>Sistema de descargas:</strong> No se implementará un sistema propio de descarga directa de videojuegos en esta fase.</p>
+</li>
+<li>
+<p><strong>Foros o comentarios:</strong> La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.</p>
+</li>
+</ul>
+<h3 id="roles-del-equipo"><strong>Roles del equipo</strong></h3>
+<ul>
+<li>Líder de proyecto: Alejandro Mariño.</li>
+<li>Administrador de sistemas: Iker Sanchez.</li>
+<li>Desarrollador web: Alejandro Mariño.</li>
+<li>Administrador de base de datos: Alejandro Mariño y Iker Sanchez.</li>
+<li>Especialista en seguridad: Iker Sanchez.</li>
+<li>Documentador: Alejandro Mariño y Iker Sanchez.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2026 17:54:30 UTC">January 25, 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 3, 2025 19:37:00 UTC">December 3, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

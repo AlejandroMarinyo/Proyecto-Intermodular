@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreviPlay - Estudio de Desarrollo de Videojuegos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>CreviPlay</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+                <li><a href="#sobre-nosotros" class="nav-link">Sobre Nosotros</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="section active">
+        <div class="hero">
+            <div class="container">
+                <h2>Bienvenido a CreviPlay</h2>
+                <p class="subtitle">Estudio de desarrollo de videojuegos independiente</p>
+                <p class="description">Creamos videojuegos casuales e indie para múltiples plataformas. 
+                Somos un equipo de desarrolladores locales con talento y pasión por los videojuegos.</p>
+                <a href="#portafolio" class="btn-primary">Ver Nuestros Proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Portafolio -->
+    <section id="portafolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Videojuegos</h2>
+            <p class="section-subtitle">Proyectos en desarrollo y próximos lanzamientos</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Imagen del Proyecto</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Proyecto 1</h3>
+                        <p class="portfolio-status">En desarrollo</p>
+                        <p>Descripción del videojuego en desarrollo. Un juego casual con mecánicas innovadoras.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Imagen del Proyecto</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Proyecto 2</h3>
+                        <p class="portfolio-status">En desarrollo</p>
+                        <p>Otro proyecto emocionante que estamos desarrollando para múltiples plataformas.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Imagen del Proyecto</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Proyecto 3</h3>
+                        <p class="portfolio-status">Planificación</p>
+                        <p>Un nuevo concepto de juego indie que estamos planificando.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="sobre-nosotros" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <p class="section-subtitle">Conoce al equipo de CreviPlay</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>CreviPlay es un nuevo estudio de desarrollo de videojuegos independiente establecido en Crevillent, Alicante. 
+                    Formado por un pequeño equipo de desarrolladores locales con talento y pasión, nos centramos en crear 
+                    videojuegos casuales e indie para múltiples plataformas.</p>
+                    
+                    <p>Nuestro objetivo es destacar en la industria de videojuegos independientes con proyectos creativos 
+                    y de calidad que lleguen a jugadores de todo el mundo.</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">AM</div>
+                        <h4>Alejandro Mariño</h4>
+                        <p>Líder de Proyecto<br>Desarrollador Web<br>Administrador de BD</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">IS</div>
+                        <h4>Iker Sanchez</h4>
+                        <p>Administrador de Sistemas<br>Especialista en Seguridad<br>Administrador de BD</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Interesado en colaborar? Ponte en contacto con nosotros</p>
+            
+            <div class="contact-container">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                </form>
+
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Ubicación:</strong> Crevillent, Alicante, España</p>
+                    <p><strong>Email:</strong> contacto@creviplay.com</p>
+                    <p><strong>Redes Sociales:</strong></p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CreviPlay. Todos los derechos reservados.</p>
+            <p>Proyecto Intermodular - 2º ASIR</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

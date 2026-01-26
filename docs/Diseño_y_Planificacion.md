@@ -29,7 +29,35 @@ A continuación se muestra el modelo ER realizado. El diagrama resume de forma v
     Figura: Modelo Entidad-Relación principal de la base de datos CreviPlay
 </p>
 
+## Diseño de la pagina web
 
+Para este proyecto de 2º de ASIR, se ha optado por una solución práctica y funcional que permita demostrar los conocimientos adquiridos sin requerir un nivel de complejidad excesivo. La página web se desarrollará utilizando **WordPress** como sistema de gestión de contenidos (CMS), lo que facilitará la implementación y permitirá centrarse en los aspectos de infraestructura y administración del sistema.
+
+### **Estructura y funcionalidades básicas**
+
+La página web de CreviPlay contará con las siguientes secciones principales:
+
+- **Página de inicio (Home)**: Presentación del estudio, información básica y acceso rápido a los proyectos destacados.
+- **Portafolio de videojuegos**: Galería donde se mostrarán los proyectos en desarrollo, con imágenes, descripciones y estado de cada proyecto.
+- **Sobre nosotros**: Información sobre el equipo de desarrollo y el estudio.
+- **Contacto**: Formulario de contacto básico para que publishers o clientes puedan ponerse en contacto con el estudio.
+
+### **Características técnicas**
+
+- **Tema WordPress**: Se utilizará un tema gratuito o de bajo coste, personalizado con los colores y logo de CreviPlay.
+- **Plugins esenciales**: Se instalarán plugins básicos para gestión de formularios de contacto y optimización de imágenes.
+- **Responsive design**: El tema seleccionado será responsive para que la página sea accesible desde dispositivos móviles.
+- **Panel de administración**: Acceso al panel de WordPress para gestionar contenidos, proyectos y usuarios.
+
+### **Consideraciones de diseño**
+
+Dado que este es un proyecto académico de segundo curso, el enfoque se centrará en:
+
+- **Funcionalidad sobre estética**: Priorizar que todas las funcionalidades básicas funcionen correctamente.
+- **Simplicidad**: Evitar diseños excesivamente complejos que puedan generar problemas técnicos.
+- **Aprendizaje práctico**: Utilizar la implementación como oportunidad para aprender sobre despliegue web, configuración de servidores y gestión de contenidos.
+
+El objetivo principal es demostrar la capacidad de desplegar y administrar una aplicación web funcional en un entorno AWS, más que crear una página web de nivel profesional comercial.
 
 ## **Requisitos principales**
 **Funcionales:**
