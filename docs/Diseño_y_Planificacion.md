@@ -55,9 +55,6 @@ Dado que este es un proyecto académico de segundo curso, el enfoque se centrar�
 
 - **Funcionalidad sobre estética**: Priorizar que todas las funcionalidades básicas funcionen correctamente.
 - **Simplicidad**: Evitar diseños excesivamente complejos que puedan generar problemas técnicos.
-- **Aprendizaje práctico**: Utilizar la implementación como oportunidad para aprender sobre despliegue web, configuración de servidores y gestión de contenidos.
-
-El objetivo principal es demostrar la capacidad de desplegar y administrar una aplicación web funcional en un entorno AWS, más que crear una página web de nivel profesional comercial.
 
 ## **Requisitos principales**
 **Funcionales:**
