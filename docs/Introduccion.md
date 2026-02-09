@@ -41,6 +41,29 @@ Nuestro objetivo es destacar en la industria de videojuegos independientes con p
 - **Stakeholders secundarios**
   - Clientes potenciales, publishers, partners e instituciones públicas
 
+### **Matriz de trazabilidad de requisitos**
+
+La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo y su estado de implementación:
+
+| Requisito | ASGBD | ASO | IAW | Servicios de Red | Seguridad | Estado |
+|-----------|-------|-----|-----|-----------------|-----------|--------|
+| **Plataforma web con portafolio** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Panel de administración** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Gestión de Proyectos** | ✓ | ✓ | ✓ | - | ✓ | Pendiente |
+| **Tiempo de carga < 2 segundos** | - | ✓ | ✓ | ✓ | - | Pendiente |
+| **Backup diario** | ✓ | ✓ | - | - | ✓ | Pendiente |
+| **Seguridad (HTTPS, encriptación)** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Crear presencia web profesional** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
+| **Mostrar los videojuegos** | - | ✓ | ✓ | ✓ | - | Pendiente |
+
+**Leyenda:**
+
+- Módulo relacionado con el requisito = ✓
+
+- Módulo no relacionado con el requisito = -
+
+- **Estados:** Pendiente, En desarrollo, Completado
+
 ### **Análisis DAFO**
 
 | Fortalezas | Debilidades | Oportunidades | Amenazas |

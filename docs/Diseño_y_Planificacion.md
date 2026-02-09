@@ -62,29 +62,6 @@ Dado que este es un proyecto académico de segundo curso, el enfoque se centrar�
 - **Funcionalidad sobre estética**: Priorizar que todas las funcionalidades básicas funcionen correctamente.
 - **Simplicidad**: Evitar diseños excesivamente complejos que puedan generar problemas técnicos.
 
-### **Matriz de trazabilidad de requisitos**
-
-La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo y su estado de implementación:
-
-| Requisito | ASGBD | ASO | IAW | Servicios de Red | Seguridad | Estado |
-|-----------|-------|-----|-----|-----------------|-----------|--------|
-| **Plataforma web con portafolio** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Panel de administración** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Gestión de Proyectos** | ✓ | ✓ | ✓ | - | ✓ | Pendiente |
-| **Tiempo de carga < 2 segundos** | - | ✓ | ✓ | ✓ | - | Pendiente |
-| **Backup diario** | ✓ | ✓ | - | - | ✓ | Pendiente |
-| **Seguridad (HTTPS, encriptación)** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Crear presencia web profesional** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Mostrar los videojuegos** | - | ✓ | ✓ | ✓ | - | Pendiente |
-
-**Leyenda:**
-
-- Módulo relacionado con el requisito = ✓
-
-- Módulo no relacionado con el requisito = -
-
-- **Estados:** Pendiente, En desarrollo, Completado
-
 ### **Diagrama de Gantt**
 
 Este es el diagrama de Gantt de nuestro proyecto (Sujeto a cambios)
