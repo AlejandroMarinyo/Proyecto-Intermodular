@@ -312,6 +312,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de Diseño
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#infraestructura-del-proyecto" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -406,34 +417,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-principales" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requisitos principales
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requisitos principales">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#matriz-de-trazabilidad-de-requisitos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matriz de trazabilidad de requisitos
-      
-    </span>
-  </a>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#diagrama-de-gantt" class="md-nav__link">
     <span class="md-ellipsis">
@@ -450,28 +433,6 @@
     <span class="md-ellipsis">
       
         Matriz de riesgos con estrategias de mitigación
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decisiones-de-diseno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de Diseño
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exclusiones en fase inicial
       
     </span>
   </a>
@@ -664,6 +625,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de Diseño
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#infraestructura-del-proyecto" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -758,34 +730,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-principales" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requisitos principales
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requisitos principales">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#matriz-de-trazabilidad-de-requisitos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matriz de trazabilidad de requisitos
-      
-    </span>
-  </a>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#diagrama-de-gantt" class="md-nav__link">
     <span class="md-ellipsis">
@@ -802,28 +746,6 @@
     <span class="md-ellipsis">
       
         Matriz de riesgos con estrategias de mitigación
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decisiones-de-diseno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de Diseño
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exclusiones-en-fase-inicial" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exclusiones en fase inicial
       
     </span>
   </a>
@@ -864,6 +786,13 @@
 
 
 <h1 id="diseno-y-planificacion">Diseño y planificación</h1>
+<h3 id="decisiones-de-diseno"><strong>Decisiones de Diseño</strong></h3>
+<ul>
+<li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.</li>
+<li><strong>Sistema de base de datos gestionado:</strong> Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.</li>
+<li><strong>Aplicación web profesional:</strong> Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.</li>
+<li><strong>Seguridad y mantenimiento avanzado:</strong> Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.</li>
+</ul>
 <h2 id="infraestructura-del-proyecto">Infraestructura del proyecto</h2>
 <p><img alt="Estructura del Proyecto" src="../Estructura%20Proyecto.png" /></p>
 <h2 id="diseno-de-la-base-de-datos">Diseño de la Base de Datos</h2>
@@ -909,111 +838,6 @@
 <li><strong>Funcionalidad sobre estética</strong>: Priorizar que todas las funcionalidades básicas funcionen correctamente.</li>
 <li><strong>Simplicidad</strong>: Evitar diseños excesivamente complejos que puedan generar problemas técnicos.</li>
 </ul>
-<h2 id="requisitos-principales"><strong>Requisitos principales</strong></h2>
-<p><strong>Funcionales:</strong>
-- Plataforma web con portafolio
-- Panel de administración
-- Gestión de Proyectos</p>
-<p><strong>No funcionales:</strong>
-- Tiempo de carga &lt; 2 segundos
-- Backup diario
-- Seguridad (HTTPS, encriptación)</p>
-<p><strong>Del negocio:</strong>
-- Crear presencia web profesional
-- Mostrar los videojuegos</p>
-<h3 id="matriz-de-trazabilidad-de-requisitos"><strong>Matriz de trazabilidad de requisitos</strong></h3>
-<p>La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo y su estado de implementación:</p>
-<table>
-<thead>
-<tr>
-<th>Requisito</th>
-<th>ASGBD</th>
-<th>ASO</th>
-<th>IAW</th>
-<th>Servicios de Red</th>
-<th>Seguridad</th>
-<th>Estado</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Plataforma web con portafolio</strong></td>
-<td>-</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>Pendiente</td>
-</tr>
-<tr>
-<td><strong>Panel de administración</strong></td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>Pendiente</td>
-</tr>
-<tr>
-<td><strong>Gestión de Proyectos</strong></td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>-</td>
-<td>✓</td>
-<td>Pendiente</td>
-</tr>
-<tr>
-<td><strong>Tiempo de carga &lt; 2 segundos</strong></td>
-<td>-</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>-</td>
-<td>Pendiente</td>
-</tr>
-<tr>
-<td><strong>Backup diario</strong></td>
-<td>✓</td>
-<td>✓</td>
-<td>-</td>
-<td>-</td>
-<td>✓</td>
-<td>Pendiente</td>
-</tr>
-<tr>
-<td><strong>Seguridad (HTTPS, encriptación)</strong></td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>Pendiente</td>
-</tr>
-<tr>
-<td><strong>Crear presencia web profesional</strong></td>
-<td>-</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>Pendiente</td>
-</tr>
-<tr>
-<td><strong>Mostrar los videojuegos</strong></td>
-<td>-</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>-</td>
-<td>Pendiente</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Leyenda:</strong>
-- ✓ = Módulo relacionado con el requisito
-- - = Módulo no relacionado con el requisito
-- <strong>Estados:</strong> Pendiente, En desarrollo, Completado</p>
 <h3 id="diagrama-de-gantt"><strong>Diagrama de Gantt</strong></h3>
 <p>Este es el diagrama de Gantt de nuestro proyecto (Sujeto a cambios)</p>
 <p><img alt="Diagrama de Gantt" src="../Gantt.png" /></p>
@@ -1082,27 +906,13 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Leyenda de Probabilidad e Impacto:</strong>
-- <strong>Probabilidad:</strong> Alta (frecuente), Media (ocasional), Baja (raro)
-- <strong>Impacto:</strong> Alto (crítico para el proyecto), Medio (afecta funcionalidad), Bajo (menor inconveniente)</p>
-<h3 id="decisiones-de-diseno"><strong>Decisiones de Diseño</strong></h3>
-<ul>
-<li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.</li>
-<li><strong>Sistema de base de datos gestionado:</strong> Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.</li>
-<li><strong>Aplicación web profesional:</strong> Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.</li>
-<li><strong>Seguridad y mantenimiento avanzado:</strong> Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.</li>
-</ul>
-<h3 id="exclusiones-en-fase-inicial"><strong>Exclusiones en fase inicial</strong></h3>
-<p>Las siguientes funcionalidades quedan excluidas de la fase inicial del proyecto y podrán ser implementadas en futuras iteraciones:</p>
+<p><strong>Leyenda de Probabilidad e Impacto:</strong></p>
 <ul>
 <li>
-<p><strong>Integración con Steam/Epic:</strong> La integración con plataformas de distribución de videojuegos como Steam o Epic Games Store no está contemplada en esta fase inicial.</p>
+<p><strong>Probabilidad:</strong> Alta (frecuente), Media (ocasional), Baja (raro)</p>
 </li>
 <li>
-<p><strong>Sistema de descargas:</strong> No se implementará un sistema propio de descarga directa de videojuegos en esta fase.</p>
-</li>
-<li>
-<p><strong>Foros o comentarios:</strong> La funcionalidad de foros de discusión o sistema de comentarios en los videojuegos no está incluida en el alcance inicial.</p>
+<p><strong>Impacto:</strong> Alto (crítico para el proyecto), Medio (afecta funcionalidad), Bajo (menor inconveniente)</p>
 </li>
 </ul>
 <h3 id="roles-del-equipo"><strong>Roles del equipo</strong></h3>
@@ -1136,7 +946,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 28, 2026 17:27:56 UTC">January 28, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 9, 2026 18:05:41 UTC">February 9, 2026</span>
   </span>
 
     
