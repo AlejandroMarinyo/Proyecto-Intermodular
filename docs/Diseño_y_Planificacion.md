@@ -1,12 +1,21 @@
 # Diseño y planificación
 
 ### **Decisiones de Diseño**
-- **Infraestructura base en AWS:** Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.
-- **Sistema de base de datos gestionado:** Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.
-- **Aplicación web profesional:** Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.
-- **Seguridad y mantenimiento avanzado:** Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.
+- **Infraestructura base en AWS:** Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DNS y SSH.
+- **Sistema de base de datos:** Implementación de MySQL en contenedores Docker desplegados sobre las instancias de AWS, con volúmenes persistentes para los datos, y control de acceso mediante usuarios y roles.
+- **Aplicación web profesional:** Servidor Apache/nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en la base de datos por defecto de wordpress.
+- **Seguridad y mantenimiento avanzado:** Certificados SSL/TLS gestionados con un servidor propio de SSL.
 
-##Infraestructura del proyecto
+## Infraestructura del proyecto
+
+La infraestructura final del proyecto se ha simplificado a una única VPC que contiene **dos instancias** dentro de la misma red privada `172.31.0.0`, cada una con su IP pública asociada:
+
+- **Instancia 1 (WordPress)** – Red privada `172.31.0.0` con IP pública `32.192.151.244`.  
+  En esta máquina se ejecuta un contenedor Docker con WordPress, que expone el sitio web público de CreviPlay.
+- **Instancia 2 (Aplicación + MySQL)** – Red privada `172.31.0.0` con IP pública `18.210.185.204`.  
+  Esta instancia alberga un contenedor Docker con MySQL (base de datos del proyecto) y la aplicación del proyecto que consume dicha base de datos.
+
+Ambas máquinas se encuentran dentro de la misma VPC para facilitar la comunicación interna entre los contenedores y la base de datos, manteniendo el acceso externo controlado mediante IPs públicas y reglas de seguridad adecuadas.
 
 ![Estructura del Proyecto](Estructura%20Proyecto.png)
 
@@ -24,7 +33,7 @@ El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) 
 
 A continuación se muestra el modelo ER realizado. El diagrama resume de forma visual la estructura de la base de datos, sus tablas principales, atributos y relaciones clave.
 
-![Modelo Entidad-Relación CreviPlay](Diagrama_ER.png)
+![Modelo Entidad-Relación CreviPlay](Diagrama_ER_Mermaid.png)
 
 <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">
     Figura: Modelo Entidad-Relación principal de la base de datos CreviPlay
