@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -796,17 +796,12 @@
 <h2 id="infraestructura-del-proyecto">Infraestructura del proyecto</h2>
 <p><img alt="Estructura del Proyecto" src="../Estructura%20Proyecto.png" /></p>
 <h2 id="diseno-de-la-base-de-datos">Diseño de la Base de Datos</h2>
-<p>El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que busca reflejar las necesidades principales de la plataforma CreviPlay: gestión de usuarios, proyectos de videojuegos, medios, categorías, desarrolladores, contactos y registro de logs de actividad. La estructura facilita la integridad de los datos y escalabilidad del sistema.</p>
+<p>El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que refleja las necesidades principales de la plataforma CreviPlay: gestión de usuarios y de videojuegos. Un usuario del sistema puede gestionar múltiples videojuegos mediante la relación <strong>gestiona</strong>. La estructura garantiza la integridad de los datos y permite escalar el catálogo de videojuegos de forma ordenada.</p>
 <h3 id="principales-entidades-y-relaciones">Principales entidades y relaciones</h3>
 <ul>
-<li><strong>Usuarios</strong>: Contiene la información básica y de autenticación de cada usuario del sistema.</li>
-<li><strong>Proyectos</strong>: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.</li>
-<li><strong>Medios</strong>: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).</li>
-<li><strong>Categorias</strong>: Permite clasificar los proyectos por temáticas o géneros.</li>
-<li><strong>Desarrolladores</strong>: Registra los miembros del equipo que participan en proyectos específicos.</li>
-<li><strong>Contactos</strong>: Almacena posibles contactos externos y su relación con proyectos.</li>
-<li><strong>Logs_sistema</strong>: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.</li>
-<li><strong>Tablas de unión</strong>: Se han diseñado relaciones N:M para proyectos-categorías, proyectos-desarrolladores y proyectos-contactos, permitiendo flexibilidad en la gestión de participaciones y clasificaciones.</li>
+<li><strong>Usuario</strong>: Almacena la información de cada usuario del sistema. Atributos principales: <code>id</code> (clave primaria, autoincremental), <code>usuario</code> (único, para login), <code>password</code> (almacenada de forma hasheada), <code>nombre</code> y <code>fecha_registro</code> (timestamp por defecto).</li>
+<li><strong>Videojuego</strong>: Contiene el catálogo de videojuegos. Incluye <code>codigo</code> (clave primaria, autoincremental), <code>titulo</code>, <code>desarrollador</code>, <code>plataforma</code> (enum: PC, PlayStation, Xbox, Nintendo Switch, Mobile, Multiplataforma), <code>genero</code> (enum: Casual, Indie, Aventura, Puzzle, Estrategia, Simulación, Otros), <code>fechaLanzamiento</code>, <code>precio</code> (decimal 6,2), <code>descripcion</code>, y <code>estado</code> (enum: En desarrollo, Lanzado, En actualización; por defecto «En desarrollo»).</li>
+<li><strong>Relación gestiona</strong>: Es una relación <strong>uno a muchos</strong> (1:N) entre Usuario y Videojuego. Un usuario puede gestionar cero o muchos videojuegos; cada videojuego es gestionado por un único usuario. La clave foránea se implementa en la tabla Videojuego referenciando el <code>id</code> del Usuario.</li>
 </ul>
 <h3 id="diagrama-entidad-relacion">Diagrama Entidad-Relación</h3>
 <p>A continuación se muestra el modelo ER realizado. El diagrama resume de forma visual la estructura de la base de datos, sus tablas principales, atributos y relaciones clave.</p>
@@ -946,7 +941,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 9, 2026 18:05:41 UTC">February 9, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 2, 2026 16:40:22 UTC">March 2, 2026</span>
   </span>
 
     
@@ -1005,10 +1000,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
