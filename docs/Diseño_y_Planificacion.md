@@ -12,18 +12,13 @@
 
 ## Diseño de la Base de Datos
 
-El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que busca reflejar las necesidades principales de la plataforma CreviPlay: gestión de usuarios, proyectos de videojuegos, medios, categorías, desarrolladores, contactos y registro de logs de actividad. La estructura facilita la integridad de los datos y escalabilidad del sistema.
+El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que refleja las necesidades principales de la plataforma CreviPlay: gestión de usuarios y de videojuegos. Un usuario del sistema puede gestionar múltiples videojuegos mediante la relación **gestiona**. La estructura garantiza la integridad de los datos y permite escalar el catálogo de videojuegos de forma ordenada.
 
 ### Principales entidades y relaciones
 
-- **Usuarios**: Contiene la información básica y de autenticación de cada usuario del sistema.
-- **Proyectos**: Almacena el detalle de cada videojuego desarrollado, su estado y relación con el usuario creador.
-- **Medios**: Gestiona los recursos multimedia asociados a cada proyecto (imágenes, videos, archivos).
-- **Categorias**: Permite clasificar los proyectos por temáticas o géneros.
-- **Desarrolladores**: Registra los miembros del equipo que participan en proyectos específicos.
-- **Contactos**: Almacena posibles contactos externos y su relación con proyectos.
-- **Logs_sistema**: Mantiene un historial detallado de las acciones realizadas en el sistema por los usuarios.
-- **Tablas de unión**: Se han diseñado relaciones N:M para proyectos-categorías, proyectos-desarrolladores y proyectos-contactos, permitiendo flexibilidad en la gestión de participaciones y clasificaciones.
+- **Usuario**: Almacena la información de cada usuario del sistema. Atributos principales: `id` (clave primaria, autoincremental), `usuario` (único, para login), `password` (almacenada de forma hasheada), `nombre` y `fecha_registro` (timestamp por defecto).
+- **Videojuego**: Contiene el catálogo de videojuegos. Incluye `codigo` (clave primaria, autoincremental), `titulo`, `desarrollador`, `plataforma` (enum: PC, PlayStation, Xbox, Nintendo Switch, Mobile, Multiplataforma), `genero` (enum: Casual, Indie, Aventura, Puzzle, Estrategia, Simulación, Otros), `fechaLanzamiento`, `precio` (decimal 6,2), `descripcion`, y `estado` (enum: En desarrollo, Lanzado, En actualización; por defecto «En desarrollo»).
+- **Relación gestiona**: Es una relación **uno a muchos** (1:N) entre Usuario y Videojuego. Un usuario puede gestionar cero o muchos videojuegos; cada videojuego es gestionado por un único usuario. La clave foránea se implementa en la tabla Videojuego referenciando el `id` del Usuario.
 
 ### Diagrama Entidad-Relación
 
