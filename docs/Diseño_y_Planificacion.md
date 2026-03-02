@@ -24,7 +24,7 @@ El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) 
 
 A continuación se muestra el modelo ER realizado. El diagrama resume de forma visual la estructura de la base de datos, sus tablas principales, atributos y relaciones clave.
 
-![Modelo Entidad-Relación CreviPlay](Diagrama_ER_Mermaid.png)
+![Modelo Entidad-Relación CreviPlay](Diagrama_ER.png)
 
 <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">
     Figura: Modelo Entidad-Relación principal de la base de datos CreviPlay
