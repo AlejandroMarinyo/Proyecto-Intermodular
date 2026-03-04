@@ -41,7 +41,7 @@ Finalmente, se han asociado **direcciones IP elásticas** a cada instancia para 
 
 ## Despliegue con Docker en el servidor de WordPress
 
-En la instancia destinada a WordPress se ha utilizado **Docker Compose** para orquestar un entorno formado por tres contenedores principales que colaboran entre sí:
+En la instancia destinada a WordPress se ha utilizado **Docker Compose** para orquestar un entorno formado por dos contenedores principales que colaboran entre sí:
 
 ![Fichero docker-compose para WordPress, MySQL y phpMyAdmin](imagenes/docker-compose-wordpress.png)
 
