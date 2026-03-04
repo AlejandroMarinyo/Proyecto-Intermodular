@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -788,12 +788,20 @@
 <h1 id="diseno-y-planificacion">Diseño y planificación</h1>
 <h3 id="decisiones-de-diseno"><strong>Decisiones de Diseño</strong></h3>
 <ul>
-<li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DHCP, DNS interno, SSH y control de tráfico mediante AWS Firewall Manager.</li>
-<li><strong>Sistema de base de datos gestionado:</strong> Uso de Amazon RDS (MySQL o PostgreSQL) con despliegue multi-AZ, backups automáticos, cifrado en reposo (KMS) y gestión de accesos mediante IAM y roles con privilegios mínimos.</li>
-<li><strong>Aplicación web profesional:</strong> Servidor Apache o Nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en Amazon S3 y distribución global mediante Amazon CloudFront.</li>
-<li><strong>Seguridad y mantenimiento avanzado:</strong> Certificados SSL/TLS gestionados con AWS Certificate Manager, copias de seguridad automatizadas en S3 y Glacier, scripts de automatización en AWS Lambda, y monitorización centralizada del sistema con Amazon CloudWatch.</li>
+<li><strong>Infraestructura base en AWS:</strong> Implementación sobre Amazon EC2 con instancias optimizadas para desarrollo, red configurada mediante Amazon VPC, subredes públicas/privadas, reglas de seguridad (Security Groups), NACLs y servicios esenciales como DNS y SSH.</li>
+<li><strong>Sistema de base de datos:</strong> Implementación de MySQL en contenedores Docker desplegados sobre las instancias de AWS, con volúmenes persistentes para los datos, y control de acceso mediante usuarios y roles.</li>
+<li><strong>Aplicación web profesional:</strong> Servidor Apache/nginx desplegado en EC2, integrando un WordPress personalizado para el portafolio de videojuegos. Almacenamiento de contenido multimedia en la base de datos por defecto de wordpress.</li>
+<li><strong>Seguridad y mantenimiento avanzado:</strong> Certificados SSL/TLS gestionados con un servidor propio de SSL.</li>
 </ul>
 <h2 id="infraestructura-del-proyecto">Infraestructura del proyecto</h2>
+<p>La infraestructura final del proyecto se ha simplificado a una única VPC que contiene <strong>dos instancias</strong> dentro de la misma red privada <code>172.31.0.0</code>, cada una con su IP pública asociada:</p>
+<ul>
+<li><strong>Instancia 1 (WordPress)</strong> – Red privada <code>172.31.0.0</code> con IP pública <code>32.192.151.244</code>.<br />
+  En esta máquina se ejecuta un contenedor Docker con WordPress, que expone el sitio web público de CreviPlay.</li>
+<li><strong>Instancia 2 (Aplicación + MySQL)</strong> – Red privada <code>172.31.0.0</code> con IP pública <code>18.210.185.204</code>.<br />
+  Esta instancia alberga un contenedor Docker con MySQL (base de datos del proyecto) y la aplicación del proyecto que consume dicha base de datos.</li>
+</ul>
+<p>Ambas máquinas se encuentran dentro de la misma VPC para facilitar la comunicación interna entre los contenedores y la base de datos, manteniendo el acceso externo controlado mediante IPs públicas y reglas de seguridad adecuadas.</p>
 <p><img alt="Estructura del Proyecto" src="../Estructura%20Proyecto.png" /></p>
 <h2 id="diseno-de-la-base-de-datos">Diseño de la Base de Datos</h2>
 <p>El diseño de la base de datos está basado en un modelo Entidad-Relación (ER) que refleja las necesidades principales de la plataforma CreviPlay: gestión de usuarios y de videojuegos. Un usuario del sistema puede gestionar múltiples videojuegos mediante la relación <strong>gestiona</strong>. La estructura garantiza la integridad de los datos y permite escalar el catálogo de videojuegos de forma ordenada.</p>
@@ -805,7 +813,7 @@
 </ul>
 <h3 id="diagrama-entidad-relacion">Diagrama Entidad-Relación</h3>
 <p>A continuación se muestra el modelo ER realizado. El diagrama resume de forma visual la estructura de la base de datos, sus tablas principales, atributos y relaciones clave.</p>
-<p><img alt="Modelo Entidad-Relación CreviPlay" src="../Diagrama_ER.png" /></p>
+<p><img alt="Modelo Entidad-Relación CreviPlay" src="../Diagrama_ER_Mermaid.png" /></p>
 <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">
     Figura: Modelo Entidad-Relación principal de la base de datos CreviPlay
 </p>
@@ -941,7 +949,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 2, 2026 16:40:22 UTC">March 2, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 2, 2026 18:24:26 UTC">March 2, 2026</span>
   </span>
 
     
@@ -1000,10 +1008,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
