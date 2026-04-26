@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -467,6 +467,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#instancia-3-servicio-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instancia 3 - Servicio DNS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instancia 3 - Servicio DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-la-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de la instancia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direccion-ip-elastica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dirección IP Elástica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-red-security-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas de red (Security Group)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-bind-fichero-principal-e-includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de BIND: fichero principal e includes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusiones-de-la-fase-de-desarrollo-e-implantacion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -748,6 +809,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#instancia-3-servicio-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instancia 3 - Servicio DNS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instancia 3 - Servicio DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-la-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de la instancia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direccion-ip-elastica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dirección IP Elástica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-red-security-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas de red (Security Group)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-bind-fichero-principal-e-includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de BIND: fichero principal e includes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusiones-de-la-fase-de-desarrollo-e-implantacion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -849,12 +971,47 @@
 <li>Copia del código fuente de la aplicación al directorio <code>/var/www/html</code>, que es el <em>DocumentRoot</em> de Apache dentro del contenedor.</li>
 </ul>
 <p>Gracias a este enfoque, la aplicación queda empaquetada junto con todas sus dependencias, evitando problemas de configuración entre entornos y facilitando la replicación del servidor en el futuro.</p>
+<h2 id="instancia-3-servicio-dns">Instancia 3 - Servicio DNS</h2>
+<p>Junto a las instancias de <strong>WordPress</strong> y de la <strong>aplicación web</strong>, se ha aprovisionado una <strong>tercera instancia EC2</strong> solo para <strong>DNS</strong>, con <strong>BIND</strong> (<code>named</code> en Linux).</p>
+<h3 id="creacion-de-la-instancia">Creación de la instancia</h3>
+<p>Se ha desplegado el <strong>servidor de nombres</strong> en una instancia propia, separandolo de las demás para tener un control sobre ella.</p>
+<p><img alt="Instancia EC2 del servidor DNS" src="../imagenes/Instancia_DNS.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: instancia dedicada al rol DNS, en el mismo criterio de región e imagen base que el resto del despliegue</p>
+
+<h3 id="direccion-ip-elastica">Dirección IP Elástica</h3>
+<p>Con una <strong>Elastic IP</strong> enlazada a la instancia DNS, los <strong>registros</strong> que apunten a esa IP (por ejemplo, un dominio o subdominio) <strong>siguen teniendo sentido</strong> tras un reinicio o un cambio de mantenimiento, sin reetiquetar a mano direcciones que hayan “saltado”.</p>
+<p><img alt="Elastic IP asociada a la instancia DNS" src="../imagenes/IP_elastica_DNS.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: IP elástica asociada al servidor de nombres, alineada con el enfoque del resto de instancias</p>
+
+<h3 id="reglas-de-red-security-group">Reglas de red (Security Group)</h3>
+<p>El <strong>Security Group</strong> restringe la exposición: <strong>SSH (TCP 22)</strong> solo para la administración remota, y <strong>DNS (UDP 53 y TCP 53)</strong> para que clientes o servicios hagan resolución correctamente. Así, la hoja de reglas se puede <strong>revisar de un vistazo</strong> (quién entra, para qué y por qué puerto).</p>
+<p><img alt="Reglas de entrada del Security Group del servidor DNS" src="../imagenes/Reglas_Entrada_DNS.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: reglas mínimas para administración (22) y servicio de nombres (53)</p>
+
+<h3 id="configuracion-de-bind-fichero-principal-e-includes">Configuración de BIND: fichero principal e <em>includes</em></h3>
+<p><strong>Fichero base</strong> (<code>named.conf</code> o raíz de la configuración): directivas, inclusiones hacia el resto de fragmentos e integración con el despliegue de <code>bind</code> en el sistema.</p>
+<p><img alt="Fichero principal de configuración de named" src="../imagenes/Configuracion_named.conf.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: punto de entrada: referencias a opciones, zonas por defecto y dominios bajo vuestro control</p>
+
+<p><strong>Archivo named.options</strong>: afinan escucha, política de reenvío o recursión, y criterios de seguridad del demonio, sin mezclar con las definiciones de zona.</p>
+<p><img alt="Configuración de opciones de named" src="../imagenes/Configuracion_named.conf.options.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: hoja de opciones: comportamiento del servidor, separada de las definiciones de zona</p>
+
+<p><strong>Archivo named.conf.local</strong>: declaraciones de <code>zone</code> hacia el fichero de <strong>registros</strong> que materializan nombres y destinos reales en el entorno CreviPlay.</p>
+<p><img alt="Zona y declaraciones locales de named" src="../imagenes/Configuracion_named.conf.local.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: zona y vínculo con el fichero de datos DNS del proyecto</p>
+
+<p><strong>Archivo named.conf.default-zones</strong>: deja claro qué resuelve o delega el sistema <em>antes</em> de añadir lo propio, y sirve de referencia al contrastar con la <strong>zona local</strong> anterior.</p>
+<p><img alt="Zonas por defecto o include en named" src="../imagenes/Configuracion_named.conf.default-zones.png" /></p>
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: bloque de includes de zonas predefinidas, como referencia frente a la zona personalizada</p>
+
 <h2 id="conclusiones-de-la-fase-de-desarrollo-e-implantacion">Conclusiones de la fase de desarrollo e implantación</h2>
 <p>El uso combinado de <strong>AWS EC2</strong>, <strong>Elastic IPs</strong>, <strong>Security Groups</strong> y <strong>Docker/Docker Compose</strong> ha permitido desplegar una infraestructura modular y escalable, en la que:</p>
 <ul>
 <li>WordPress funciona como gestor de contenidos independiente para la parte más corporativa.</li>
 <li>La aplicación PHP personalizada gestiona la lógica específica del estudio de videojuegos.</li>
-<li>La separación en dos instancias reduce el impacto de posibles fallos y amplía las opciones de crecimiento del proyecto a medio y largo plazo.</li>
+<li>El servicio <strong>DNS (BIND/named)</strong> en su propia instancia aporta resolución de nombres alineada con las direcciones públicas fijas del proyecto.</li>
+<li>La separación de WordPress, aplicación y DNS reduce el impacto de posibles fallos y amplía las opciones de crecimiento del proyecto a medio y largo plazo.</li>
 </ul>
 
 
@@ -878,7 +1035,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 4, 2026 10:29:15 UTC">March 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 26, 2026 15:56:06 UTC">April 26, 2026</span>
   </span>
 
     
@@ -937,10 +1094,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
