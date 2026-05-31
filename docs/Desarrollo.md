@@ -154,6 +154,86 @@ El **Security Group** restringe la exposición: **SSH (TCP 22)** solo para la ad
 
 <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: bloque de includes de zonas predefinidas, como referencia frente a la zona personalizada</p>
 
+## Instancia 4 - Base de datos
+
+Para mejorar la **separación de responsabilidades** y reforzar la seguridad del entorno, se ha desplegado una **cuarta instancia EC2** dedicada exclusivamente a la **base de datos MySQL** de la aplicación CreviPlay. De este modo, el motor de datos queda aislado del servidor web, lo que facilita el mantenimiento, las copias de seguridad y el control del acceso a nivel de red.
+
+### Despliegue con Docker Compose
+
+En la instancia de base de datos (`172.31.17.200`) se ha levantado un entorno formado por **MySQL 8.0** y **phpMyAdmin** mediante **Docker Compose**, con persistencia de datos, exposición del puerto **3306** para la aplicación y del puerto **8080** para la administración web:
+
+![Fichero docker-compose actualizado de la base de datos con phpMyAdmin](imagenes/NuevoDockerFilebasededatos.png)
+
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: servicios `db` y `phpmyadmin` orquestados en la misma red Docker, con volumen persistente y acceso web al puerto 8080</p>
+
+#### Servicio `db` (MySQL 8.0)
+
+- Imagen utilizada: `mysql:8.0`, con nombre de contenedor `mysql-creviplay`.
+- Base de datos principal: `EstudioVideojuegos`, con usuario de aplicación y contraseñas definidos mediante variables de entorno.
+- Volumen persistente (`db_data`) montado en `/var/lib/mysql` para conservar los datos aunque el contenedor se reinicie o se recree.
+- Puerto **3306** publicado hacia el exterior para permitir la conexión remota desde el servidor web.
+- Política de reinicio `unless-stopped` para mantener el servicio disponible de forma continua.
+
+#### Servicio `phpmyadmin`
+
+Para **consultar y administrar la base de datos desde el navegador**, se ha añadido un segundo contenedor con la imagen `phpmyadmin:latest`:
+
+- Contenedor: `phpmyadmin-creviplay`.
+- Conexión interna al servicio `db` mediante las variables `PMA_HOST: db` y `PMA_PORT: 3306`.
+- Puerto **8080** del host mapeado al puerto **80** del contenedor, de modo que la interfaz queda accesible en `http://IP_PUBLICA:8080`.
+- Dependencia explícita de `db` con `depends_on`, de forma que MySQL arranca antes que phpMyAdmin.
+- Política de reinicio `unless-stopped`.
+
+Tras ejecutar `docker compose up -d`, el acceso web se realiza con las credenciales de MySQL (`root` / `rootpass` o `usuario` / `password`). En AWS, además del Security Group de MySQL, debe permitirse el tráfico entrante en el puerto **8080** (o bien usar un túnel SSH hacia `localhost:8080` para no exponer la interfaz a internet).
+
+### Reglas de red (Security Group)
+
+El **Security Group** `SQL-Separado` limita el acceso al servicio de base de datos únicamente a los orígenes necesarios:
+
+![Reglas de entrada del Security Group de la base de datos](imagenes/reglas%20de%20entrada%20Base%20de%20Datos.png)
+
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: SSH (22) para administración y MySQL (3306) restringido a la IP privada del servidor web</p>
+
+- **SSH (TCP 22)**: acceso remoto para la administración de la instancia.
+- **MySQL (TCP 3306)**: tráfico de base de datos permitido solo desde la IP privada `172.31.79.239/32`, correspondiente al servidor web de la aplicación.
+
+Con esta configuración se evita que el puerto de MySQL quede expuesto a cualquier origen, aplicando el principio de **menor privilegio** en la capa de red.
+
+### Copia de seguridad y migración de datos
+
+Antes de completar la separación, se generó una **copia de seguridad** de la base de datos en el servidor web original. En el directorio `~/ServidorWeb` quedaron disponibles el volcado `backup.sql`, el código de la aplicación y el fichero de orquestación:
+
+![Copia de seguridad de la base de datos en el servidor web](imagenes/Crear%20backup%20de%20la%20base%20de%20datos%20en%20servidor.png)
+
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: fichero `backup.sql` generado junto al proyecto `CreviPlay` antes de migrar MySQL a su propia instancia</p>
+
+Este volcado permitió trasladar los datos existentes al nuevo contenedor MySQL sin pérdida de información durante la reestructuración de la infraestructura.
+
+### Actualización del servidor web
+
+Una vez desplegada la base de datos en su instancia dedicada, el **servidor web** (`172.31.79.239`) se simplificó: el `docker-compose.yml` pasa a definir únicamente el servicio `web`, eliminando el contenedor local de MySQL y apuntando las variables de entorno hacia la IP privada de la nueva instancia:
+
+![Docker Compose actualizado del servidor web](imagenes/ServerWebActualizado.png)
+
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: servicio web con conexión remota a MySQL mediante `DB_HOST`, `DB_USER`, `DB_PASSWORD` y `DB_NAME`</p>
+
+La aplicación PHP también incorpora esta configuración en su fichero `config.php`, utilizando variables de entorno en Docker y valores por defecto orientados al entorno remoto:
+
+![Configuración de conexión en config.php](imagenes/configphp%20del%20serverweb.png)
+
+<p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; font-style: italic;">Figura: constantes `DB_HOST`, `DB_USER`, `DB_PASSWORD` y `DB_NAME` con soporte para entorno Docker y desarrollo local</p>
+
+Los parámetros de conexión quedan así alineados entre Docker Compose y la aplicación:
+
+| Parámetro | Valor |
+|-----------|-------|
+| **DB_HOST** | `172.31.17.200` |
+| **DB_USER** | `root` |
+| **DB_PASSWORD** | `rootpass` |
+| **DB_NAME** | `EstudioVideojuegos` |
+
+Gracias a este cambio, la capa web y la capa de datos quedan **desacopladas**: el servidor de aplicación puede reiniciarse o escalarse sin afectar directamente al motor de base de datos, y el acceso a MySQL queda restringido por reglas de firewall a la instancia que realmente lo necesita.
+
 
 ## Conclusiones de la fase de desarrollo e implantación
 
@@ -162,4 +242,5 @@ El uso combinado de **AWS EC2**, **Elastic IPs**, **Security Groups** y **Docker
 - WordPress funciona como gestor de contenidos independiente para la parte más corporativa.
 - La aplicación PHP personalizada gestiona la lógica específica del estudio de videojuegos.
 - El servicio **DNS (BIND/named)** en su propia instancia aporta resolución de nombres alineada con las direcciones públicas fijas del proyecto.
-- La separación de WordPress, aplicación y DNS reduce el impacto de posibles fallos y amplía las opciones de crecimiento del proyecto a medio y largo plazo.
+- La **base de datos MySQL** en una instancia dedicada centraliza el almacenamiento de la aplicación, restringe el acceso al puerto 3306 solo desde el servidor web e incorpora **phpMyAdmin** para su gestión visual desde el navegador.
+- La separación de WordPress, aplicación, DNS y base de datos reduce el impacto de posibles fallos y amplía las opciones de crecimiento del proyecto a medio y largo plazo.
