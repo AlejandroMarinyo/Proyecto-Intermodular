@@ -26,8 +26,7 @@ nav:
   - Desarrollo: Desarrollo.md
   - Resultados: Resultados.md
   - Conclusiones y mejoras futuras: Conclusiones.md
-  - Bibliografía : Bibliografia.md
-  - Anexos: Anexos.md
+  - Bibliografía y anexos : Bibliografia_y_anexos.md
 
 plugins:
   - git-revision-date-localized:

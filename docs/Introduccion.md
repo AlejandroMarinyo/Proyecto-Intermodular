@@ -13,27 +13,27 @@ Nuestro objetivo es destacar en la industria de videojuegos independientes con p
 ### **Problemática**
 **_Infraestructura inexistente_**
 
-- No existe ningún servidor, base de datos ni servicios de red configurados para operar
+- No existía ningún servidor, base de datos ni servicios de red configurados para operar.
 
 **_Sin presencia Web_**
 
-- Falta de plataforma profesional para mostrar el portafolio de videojuegos en desarrollo
+- Falta de plataforma profesional para mostrar el portafolio de videojuegos en desarrollo.
 
 **_Ausencia de seguridad_**
 
-- Sin medidas de protección, sistema de respaldo ni acceso remoto seguro implementados
+- Sin medidas de protección, sistema de respaldo ni acceso remoto seguro implementados.
 
 **_Sin gestión centralizada_**
 
-- Necesidad urgente de gestionar proyectos, desarrolladores y contactos con publishers
+- Necesidad urgente de gestionar proyectos, desarrolladores y contactos con publishers.
 
 ### **Objetivos**
-1. **Crear infraestructura completa de TI desde cero:** Diseñar e implementar toda la infraestructura de TI: servidores, topología de red y servicios fundamentales.
-2. **Servicios de red profesionales:** Configurar DHCP, DNS, SSH y Apache para garantizar conectividad y funcionalidad óptima.
-3. **Base de datos robusta:** Instalar y configurar la base de datos para gestionar proyectos, desarrolladores y contactos del estudio.
-4. **Plataforma web profesional:** Desarrollar sitio web con WordPress para mostrar el portafolio de videojuegos y facilitar contacto con la industria.
-5. **Seguridad y respaldo:** Implementar firewall, encriptación, acceso remoto seguro y sistema automático de copias de seguridad.
-6. **Automatización inteligente:** Crear scripts para automatizar tareas administrativas, mantenimiento y respaldos del sistema.
+1. **Crear infraestructura completa de TI desde cero:** Diseñar e implementar toda la infraestructura de TI con **cuatro instancias EC2** especializadas (WordPress, aplicación PHP, DNS y base de datos), topología de red y servicios fundamentales.
+2. **Servicios de red profesionales:** Configurar **DNS (BIND)**, SSH y Apache para garantizar conectividad y funcionalidad óptima.
+3. **Base de datos robusta:** Instalar y configurar **MySQL 8.0** en instancia dedicada con phpMyAdmin para gestionar proyectos, desarrolladores y el catálogo de videojuegos del estudio.
+4. **Plataforma web profesional:** Desplegar **WordPress** como CMS corporativo y una **aplicación PHP** personalizada para la gestión del catálogo y panel de administración.
+5. **Seguridad y respaldo:** Implementar Security Groups con principio de menor privilegio, acceso remoto SSH y copias de seguridad de la base de datos.
+6. **Contenerización con Docker:** Orquestar todos los servicios con **Docker Compose** para garantizar entornos reproducibles y portables.
 
 ### **Interesados**
 - **Stakeholders primarios**
@@ -47,32 +47,32 @@ La siguiente tabla relaciona cada requisito con los módulos del ciclo formativo
 
 | Requisito | ASGBD | ASO | IAW | Servicios de Red | Seguridad | Estado |
 |-----------|-------|-----|-----|-----------------|-----------|--------|
-| **Plataforma web con portafolio** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Panel de administración** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Gestión de Proyectos** | ✓ | ✓ | ✓ | - | ✓ | Pendiente |
-| **Tiempo de carga < 2 segundos** | - | ✓ | ✓ | ✓ | - | Pendiente |
+| **Plataforma web con portafolio** | - | ✓ | ✓ | ✓ | ✓ | Completado |
+| **Panel de administración** | ✓ | ✓ | ✓ | ✓ | ✓ | Completado |
+| **Gestión de Proyectos** | ✓ | ✓ | ✓ | - | ✓ | Completado |
+| **Tiempo de carga < 2 segundos** | - | ✓ | ✓ | ✓ | - | Completado |
+| **Servidor DNS propio (BIND)** | - | - | - | ✓ | ✓ | Completado |
+| **Base de datos en instancia dedicada** | ✓ | ✓ | - | ✓ | ✓ | Completado |
 | **Backup diario** | ✓ | ✓ | - | - | ✓ | Pendiente |
 | **Seguridad (HTTPS, encriptación)** | ✓ | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Crear presencia web profesional** | - | ✓ | ✓ | ✓ | ✓ | Pendiente |
-| **Mostrar los videojuegos** | - | ✓ | ✓ | ✓ | - | Pendiente |
+| **Crear presencia web profesional** | - | ✓ | ✓ | ✓ | ✓ | Completado |
+| **Mostrar los videojuegos** | - | ✓ | ✓ | ✓ | - | Completado |
 
 **Leyenda:**
 
 - Módulo relacionado con el requisito = ✓
-
 - Módulo no relacionado con el requisito = -
-
 - **Estados:** Pendiente, En desarrollo, Completado
 
 ### **Análisis DAFO**
 
 | Fortalezas | Debilidades | Oportunidades | Amenazas |
 |---|---|---|---|
-| - Equipo joven, motivado y con conocimiento técnico sólido<br>- Flexibilidad para adaptarse rápidamente a cambios<br>- Enfoque en nichos creativos del mercado indie | - Falta total de infraestructura TI previa<br>- Recursos económicos limitados como startup<br>- Poca experiencia empresarial del equipo | - Mercado de videojuegos indie en constante crecimiento<br>- Tecnologías cloud accesibles y escalables<br>- Apoyo de instituciones locales y regionales | - Competencia intensa de estudios consolidados<br>- Rápidos cambios tecnológicos en la industria<br>- Dependencia de plataformas de distribución |
+| - Equipo joven, motivado y con conocimiento técnico sólido<br>- Flexibilidad para adaptarse rápidamente a cambios<br>- Enfoque en nichos creativos del mercado indie<br>- Infraestructura modular con cuatro instancias especializadas | - Recursos económicos limitados como startup<br>- Poca experiencia empresarial del equipo<br>- HTTPS y backups automáticos aún pendientes | - Mercado de videojuegos indie en constante crecimiento<br>- Tecnologías cloud accesibles y escalables<br>- Apoyo de instituciones locales y regionales | - Competencia intensa de estudios consolidados<br>- Rápidos cambios tecnológicos en la industria<br>- Dependencia de plataformas de distribución |
 
 ---
 
-**Metadatos / Fechas (origen del documento):**
+**Metadatos / Fechas:**
 
-- Last update: December 3, 2025
+- Last update: Junio 7, 2026
 - Created: December 3, 2025

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Estructura Proyecto CreviPlay</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fafafa;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .canvas {
+    width: 1380px;
+    background: #fff;
+    padding: 24px 30px 32px;
+  }
+  .title-aws {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #232f3e;
+    margin-bottom: 16px;
+  }
+  .vpc {
+    border: 3px dashed #1d8102;
+    border-radius: 10px;
+    padding: 44px 24px 24px;
+    position: relative;
+    background: #fcfffc;
+  }
+  .vpc-label {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    color: #1d8102;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .subnet {
+    border: 3px solid #ff9900;
+    border-radius: 8px;
+    padding: 50px 20px 20px;
+    position: relative;
+    background: #fffaf5;
+  }
+  .subnet-label {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ff9900;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .internet-wrap {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+  }
+  .internet-cloud {
+    width: 120px;
+    height: 48px;
+    background: #e8f4fc;
+    border: 2px solid #0073bb;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #0073bb;
+    font-size: 14px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 28px;
+  }
+  .instance {
+    background: #fff;
+    border: 2px solid #232f3e;
+    border-radius: 8px;
+    padding: 12px 14px 10px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .instance-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #232f3e;
+    margin-bottom: 5px;
+  }
+  .ip-line {
+    font-size: 10.5px;
+    color: #545b64;
+    margin-bottom: 1px;
+  }
+  .containers {
+    margin: 10px 0 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    flex: 1;
+  }
+  .container-box {
+    background: #f2f8fd;
+    border: 2px solid #0073bb;
+    border-radius: 6px;
+    padding: 8px 12px;
+    width: 94%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 54px;
+  }
+  .container-box.small { min-height: 48px; }
+  .icon { width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .icon svg { width: 40px; height: 40px; }
+  .container-name { font-size: 11.5px; font-weight: 700; color: #232f3e; }
+  .container-sub { font-size: 9.5px; color: #545b64; margin-top: 1px; }
+  .service-arrow { text-align: center; color: #545b64; font-size: 15px; line-height: 1; margin: 1px 0; }
+  .service-label { text-align: center; font-size: 10.5px; font-weight: 600; color: #232f3e; }
+  .os-footer {
+    text-align: center;
+    font-size: 9.5px;
+    color: #545b64;
+    padding-top: 6px;
+    border-top: 1px solid #eee;
+    line-height: 1.45;
+  }
+  /* Líneas de conexión */
+  .lines-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+</style>
+</head>
+<body>
+<div class="canvas" id="diagram">
+  <div class="title-aws">Nube AWS</div>
+  <div class="vpc">
+    <div class="vpc-label">VPC</div>
+    <div class="subnet" id="subnet">
+      <div class="subnet-label">Subnet &nbsp; 172.31.0.0/16</div>
+      <div class="internet-wrap">
+        <div class="internet-cloud" id="internet">Internet</div>
+      </div>
+
+      <svg class="lines-svg" id="lines">
+        <defs>
+          <marker id="ag" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#1d8102"/></marker>
+          <marker id="ab" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#0073bb"/></marker>
+        </defs>
+      </svg>
+
+      <div class="grid">
+        <!-- INSTANCIA 1 -->
+        <div class="instance" id="i1">
+          <div class="instance-title">Instancia 1 – WordPress (Docker)</div>
+          <div class="ip-line">IP Privada: 172.31.0.10</div>
+          <div class="ip-line">IP Pública: 32.192.151.244</div>
+          <div class="containers">
+            <div class="container-box">
+              <div class="icon">
+                <svg viewBox="0 0 80 48">
+                  <!-- Docker whale -->
+                  <rect x="2" y="18" width="10" height="6" fill="#2496ed"/><rect x="14" y="18" width="10" height="6" fill="#2496ed"/>
+                  <rect x="26" y="18" width="10" height="6" fill="#2496ed"/><rect x="8" y="10" width="10" height="6" fill="#2496ed"/>
+                  <rect x="20" y="10" width="10" height="6" fill="#2496ed"/>
+                  <path d="M2 28 Q2 38 18 38 L28 38 Q32 42 38 38 L48 38 Q54 42 58 38 L68 38 Q76 38 76 28 L76 24 L2 24 Z" fill="#2496ed"/>
+                  <!-- WordPress W -->
+                  <circle cx="62" cy="16" r="13" fill="#21759b"/>
+                  <text x="62" y="21" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold" font-family="Georgia,serif">W</text>
+                </svg>
+              </div>
+              <div>
+                <div class="container-name">Contenedor</div>
+                <div class="container-sub">Docker · WordPress</div>
+              </div>
+            </div>
+            <div class="service-arrow">↓</div>
+            <div class="service-label">Servicio WordPress</div>
+          </div>
+          <div class="os-footer">Sistema Operativo: Linux<br>Hypervisor AWS</div>
+        </div>
+
+        <!-- INSTANCIA 2 -->
+        <div class="instance" id="i2">
+          <div class="instance-title">Instancia 2 – App CreviPlay (Docker)</div>
+          <div class="ip-line">IP Privada: 172.31.79.239</div>
+          <div class="ip-line">IP Pública: 18.210.185.204</div>
+          <div class="containers">
+            <div class="container-box">
+              <div class="icon">
+                <!-- Smartphone / app icon like original -->
+                <svg viewBox="0 0 48 64"><rect x="10" y="4" width="28" height="56" rx="4" fill="#4a90d9" stroke="#232f3e" stroke-width="1.5"/><rect x="14" y="10" width="20" height="36" rx="1" fill="#fff"/><circle cx="24" cy="52" r="3" fill="#fff"/></svg>
+              </div>
+              <div>
+                <div class="container-name">Aplicación CreviPlay Contenedor</div>
+                <div class="container-sub">Docker · PHP 8.2 + Apache</div>
+              </div>
+            </div>
+            <div class="service-arrow">↓</div>
+            <div class="service-label" style="color:#1d8102;">Conexión remota MySQL :3306 → Inst. 4</div>
+          </div>
+          <div class="os-footer">Sistema Operativo: Linux<br>Hypervisor AWS</div>
+        </div>
+
+        <!-- INSTANCIA 3 -->
+        <div class="instance" id="i3">
+          <div class="instance-title">Instancia 3 – DNS (BIND)</div>
+          <div class="ip-line">IP Privada: 172.31.0.30</div>
+          <div class="ip-line">IP Pública: Elastic IP dedicada</div>
+          <div class="containers">
+            <div class="container-box">
+              <div class="icon">
+                <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="#0073bb" stroke-width="2.5"/><ellipse cx="32" cy="32" rx="10" ry="22" fill="none" stroke="#0073bb" stroke-width="2"/><line x1="10" y1="32" x2="54" y2="32" stroke="#0073bb" stroke-width="2"/></svg>
+              </div>
+              <div>
+                <div class="container-name">Servicio named (BIND)</div>
+                <div class="container-sub">Puertos 53 UDP/TCP</div>
+              </div>
+            </div>
+            <div class="service-arrow">↓</div>
+            <div class="service-label" style="color:#0073bb;">Resolución DNS → Elastic IPs</div>
+          </div>
+          <div class="os-footer">Sistema Operativo: Linux<br>Hypervisor AWS</div>
+        </div>
+
+        <!-- INSTANCIA 4 -->
+        <div class="instance" id="i4">
+          <div class="instance-title">Instancia 4 – Base de Datos (Docker)</div>
+          <div class="ip-line">IP Privada: 172.31.17.200</div>
+          <div class="ip-line">IP Pública: — (sin acceso público)</div>
+          <div class="containers">
+            <div class="container-box small">
+              <div class="icon">
+                <svg viewBox="0 0 64 64"><ellipse cx="32" cy="15" rx="20" ry="7" fill="#00758f"/><rect x="12" y="15" width="40" height="30" fill="#00758f"/><ellipse cx="32" cy="45" rx="20" ry="7" fill="#00758f"/><ellipse cx="32" cy="22" rx="20" ry="5" fill="none" stroke="#fff" stroke-width="1.2" opacity=".6"/><text x="32" y="36" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">SQL</text></svg>
+              </div>
+              <div>
+                <div class="container-name">MySQL DB Contenedor</div>
+                <div class="container-sub">Docker · MySQL 8.0 · EstudioVideojuegos</div>
+              </div>
+            </div>
+            <div class="container-box small">
+              <div class="icon">
+                <svg viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="40" rx="4" fill="#f8981d"/><text x="32" y="38" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">pMA</text></svg>
+              </div>
+              <div>
+                <div class="container-name">phpMyAdmin Contenedor</div>
+                <div class="container-sub">Docker · puerto 8080</div>
+              </div>
+            </div>
+            <div class="service-label" style="color:#1d8102;margin-top:2px;">SG: solo 172.31.79.239/32</div>
+          </div>
+          <div class="os-footer">Sistema Operativo: Linux<br>Hypervisor AWS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dibujar líneas de conexión tras renderizar
+window.addEventListener('load', () => {
+  const subnet = document.getElementById('subnet');
+  const svg = document.getElementById('lines');
+  const sr = subnet.getBoundingClientRect();
+
+  function center(el) {
+    const r = el.getBoundingClientRect();
+    return {
+      x: r.left + r.width / 2 - sr.left,
+      y: r.top + r.height / 2 - sr.top,
+      top: r.top - sr.top,
+      bottom: r.bottom - sr.top,
+    };
+  }
+
+  const internet = center(document.getElementById('internet'));
+  const i1 = center(document.getElementById('i1'));
+  const i2 = center(document.getElementById('i2'));
+  const i3 = center(document.getElementById('i3'));
+  const i4 = center(document.getElementById('i4'));
+
+  svg.setAttribute('width', sr.width);
+  svg.setAttribute('height', sr.height);
+  svg.setAttribute('viewBox', `0 0 ${sr.width} ${sr.height}`);
+
+  const lines = [
+    // Internet (inst 1, 2, 3)
+    `<line x1="${i1.x}" y1="${i1.top}" x2="${internet.x}" y2="${internet.y + 20}" stroke="#bbb" stroke-width="2" stroke-dasharray="6 4"/>`,
+    `<line x1="${i2.x}" y1="${i2.top}" x2="${internet.x}" y2="${internet.y + 20}" stroke="#bbb" stroke-width="2" stroke-dasharray="6 4"/>`,
+    `<line x1="${i3.x}" y1="${i3.top}" x2="${internet.x}" y2="${internet.y + 20}" stroke="#bbb" stroke-width="2" stroke-dasharray="6 4"/>`,
+    // MySQL privado inst 2 → inst 4
+    `<line x1="${i2.x}" y1="${i2.bottom}" x2="${i4.x}" y2="${i4.top}" stroke="#1d8102" stroke-width="2.5" marker-end="url(#ag)"/>`,
+    // DNS → internet
+    `<line x1="${i3.x}" y1="${i3.top}" x2="${internet.x + 40}" y2="${internet.y + 10}" stroke="#0073bb" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ab)"/>`,
+  ];
+
+  svg.innerHTML = svg.querySelector('defs').outerHTML + lines.join('');
+});
+</script>
+</body>
+</html>
